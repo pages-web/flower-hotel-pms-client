@@ -16,7 +16,7 @@ const SelectRoomProductCard = ({ ...room }: IProduct) => {
 
   return (
     <div className="text-start space-y-3 cursor-pointer group">
-      <div className="h-[300px] overflow-hidden w-fit rounded-xl relative flex justify-center items-center">
+      <div className="h-[300px] overflow-hidden rounded-xl relative flex justify-center items-center">
         <Image
           src={room.attachment?.url || ""}
           width={1200}
@@ -26,7 +26,7 @@ const SelectRoomProductCard = ({ ...room }: IProduct) => {
         <span className="absolute text-textxs bg-white/60 py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 duration-300">
           Room details
         </span>
-        <h3 className="text-textlg absolute bottom-0 left-0 p-2 text-white font-semibold">
+        <h3 className="text-textlg absolute bottom-0 left-0 p-2 text-black font-semibold">
           {category?.name}{" "}
           <span className="font-normal text-textxs">32(m2)</span>
         </h3>

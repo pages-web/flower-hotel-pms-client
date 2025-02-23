@@ -19,6 +19,7 @@ const useRooms = (
       categoryId: currentConfig?.roomCategories[0],
       perPage: 1000,
     },
+    skip: !currentConfig,
     ...options,
   });
 
@@ -31,6 +32,7 @@ export const useRoomCategories = (options?: OperationVariables) => {
     variables: {
       parentId: currentConfig?.roomCategories[0],
     },
+    skip: !currentConfig,
     ...options,
   });
   return { roomCategories: data?.productCategories, loading };

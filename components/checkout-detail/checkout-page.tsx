@@ -28,26 +28,14 @@ const CheckoutPage = () => {
     }
   }, [stripeData?.config?.publishableKey]);
 
-  // Memoize options to avoid unnecessary re-renders
-  const stripeOptions = useMemo(() => {
-    if (!stripeData || !totalAmount) return null;
-
-    return {
-      mode: "payment",
-      amount: 1000,
-      currency: "usd", //optional, can be mnt
-      paymentMethodTypes: ["card"],
-    };
-  }, [stripeData, totalAmount]);
-
   return (
     <Elements
       stripe={stripeInstance}
       options={{
         mode: "payment",
-        // amount: convertToSubcurrency(totalAmount),
-        amount: 1000,
-        currency: "usd", //optional, can be mnt
+        amount: convertToSubcurrency(totalAmount),
+        // amount: 1000,
+        currency: "mnt", //optional, can be mnt
         paymentMethodTypes: ["card"],
       }}
     >

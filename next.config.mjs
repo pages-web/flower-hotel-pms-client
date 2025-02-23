@@ -5,20 +5,13 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    // NEXT_PUBLIC_MAIN_API_DOMAIN: process.env.NEXT_PUBLIC_MAIN_API_DOMAIN,
-    // NEXT_PUBLIC_MAIN_SUBS_DOMAIN: process.env.NEXT_PUBLIC_MAIN_SUBS_DOMAIN,
-    // NEXT_PUBLIC_CP_ID: process.env.NEXT_PUBLIC_CP_ID,
-    // NEXT_PUBLIC_PMS_TOKEN: process.env.NEXT_PUBLIC_PMS_TOKEN,
-    // NEXT_PUBLIC_ROOT_CATEGORY_ID: process.env.NEXT_PUBLIC_ROOT_CATEGORY_ID,
-    // NEXT_PUBLIC_APP_TOKEN: process.env.NEXT_PUBLIC_APP_TOKEN,
-
-    NEXT_PUBLIC_MAIN_API_DOMAIN: "https://tourism.app.erxes.io/gateway",
-    NEXT_PUBLIC_MAIN_SUBS_DOMAIN: "ws://tourism.api.erxes.io/api/graphql",
-    NEXT_PUBLIC_CP_ID: "XT4csSMkCWe43MFlyUTk_",
-    NEXT_PUBLIC_PMS_TOKEN: "cplOSUugJWEsxHRjbD8N1jzuVdsPmwN8",
-    NEXT_PUBLIC_ROOT_CATEGORY_ID: "Vz0J0QhpjQHDTZ5ssK-8a",
+    NEXT_PUBLIC_MAIN_API_DOMAIN: "https://flowerhotel.app.erxes.io/gateway",
+    NEXT_PUBLIC_MAIN_SUBS_DOMAIN: "ws://flowerhotel.app.erxes.io/api/graphql",
+    NEXT_PUBLIC_CP_ID: "E-J2jkBz4_DBy3qkrPQHL",
+    NEXT_PUBLIC_PMS_TOKEN: "AVpfdcnXc8yCuh5bSdzC41aAeK4Qu5S2",
+    NEXT_PUBLIC_ROOT_CATEGORY_ID: "oXuvTIwqRhnmhPLhPSNER",
     NEXT_PUBLIC_APP_TOKEN:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOnsibmFtZSI6IkhvdGVsIHRva2VuIiwiY3JlYXRlZEF0IjoiMjAyNS0wMS0yN1QwNzowMTo0MC44NzdaIiwidXNlckdyb3VwSWQiOiI0RUh5ZFREQWlzMkxkUW5abiIsImV4cGlyZURhdGUiOiIyMDI1LTAyLTI2VDEwOjM2OjQ0LjQ3M1oiLCJub0V4cGlyZSI6dHJ1ZSwiYWxsb3dBbGxQZXJtaXNzaW9uIjp0cnVlLCJfaWQiOiJ5NjZTTlRKZW9jd1VhYVFqWU5FVHciLCJfX3YiOjB9LCJpYXQiOjE3Mzc5NzQyMTV9.lLwFmzMudhQK9hu3WatkS4LlXYgMJEq4Zf4CbWzkmno",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOnsibmFtZSI6IlBNUyIsImNyZWF0ZWRBdCI6IjIwMjUtMDItMjBUMDY6NDM6MDQuNjk1WiIsInVzZXJHcm91cElkIjoiSndsN1V5RVFyelJNYlhLbENib0w4IiwiZXhwaXJlRGF0ZSI6IjIwMjUtMDMtMjVUMDc6MDY6MDcuNzQ3WiIsIm5vRXhwaXJlIjp0cnVlLCJhbGxvd0FsbFBlcm1pc3Npb24iOnRydWUsIl9pZCI6InpicXN1UUhwTXJtXzUySWhJSFFxWiIsIl9fdiI6MH0sImlhdCI6MTc0MDI5NDM3N30.6eSU7KQFJiKweSOm17aI2q6cmtypz4Zx0CCjyVdlFoQ",
   },
 };
 
