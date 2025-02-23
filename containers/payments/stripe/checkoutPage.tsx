@@ -1,17 +1,22 @@
-import convertToSubcurrency from "@/lib/convertToSubcurrency";
-import { useAtom } from "jotai";
-import { useLocale } from "next-intl";
-import { useEffect, useState } from "react";
-import { useStripe, useElements } from "@stripe/react-stripe-js";
-import { totalAmountAtom } from "@/store/payments";
+"use client";
 
-export const useStripeCheckout = () => {
+import React, { useEffect, useState } from "react";
+import {
+  useStripe,
+  useElements,
+  PaymentElement,
+} from "@stripe/react-stripe-js";
+import convertToSubcurrency from "@/lib/convertToSubcurrency";
+import { usePathname } from "@/i18n/routing";
+import { useLocale } from "next-intl";
+import { Loading } from "@/components/ui/loading";
+
+const CheckoutPage = ({ amount }: { amount: number }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState<string>();
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
-  const [totalAmount] = useAtom(totalAmountAtom);
   const locale = useLocale();
 
   useEffect(() => {
@@ -24,7 +29,7 @@ export const useStripeCheckout = () => {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [totalAmount]);
+  }, [amount]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,7 +51,7 @@ export const useStripeCheckout = () => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `https://flowerhotel.app.erxes.io/${locale}/payment-success?amount=${totalAmount}`,
+        return_url: `https://flowerhotel.app.erxes.io/${locale}/payment-success?amount=${amount}`,
       },
     });
 
@@ -62,12 +67,24 @@ export const useStripeCheckout = () => {
     setLoading(false);
   };
 
-  return {
-    stripe,
-    elements,
-    clientSecret,
-    loading,
-    errorMessage,
-    handleSubmit,
-  };
+  if (!clientSecret || !stripe || !elements) {
+    return <Loading />;
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
+      {clientSecret && <PaymentElement />}
+
+      {errorMessage && <div>{errorMessage}</div>}
+
+      {/* <button
+        disabled={!stripe || loading}
+        className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
+      >
+        {!loading ? `Pay $${amount}` : "Processing..."}
+      </button> */}
+    </form>
+  );
 };
+
+export default CheckoutPage;

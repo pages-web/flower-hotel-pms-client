@@ -251,7 +251,7 @@ const CheckoutForm = () => {
                     },
                     onCompleted: () =>
                       router.push(
-                        `https://pms-client.erxes.io/${locale}/booking/confirmation/${dealId}`
+                        `https://flowerhotel.app.erxes.io/${locale}/booking/confirmation/${dealId}`
                       ),
                   });
               }
@@ -670,7 +670,7 @@ const CheckoutForm = () => {
                           },
                         });
                         router.push(
-                          `https://pms-client.erxes.io/${locale}/booking/confirmation/${dealId}`
+                          `https://flowerhotel.app.erxes.io/${locale}/booking/confirmation/${dealId}`
                         );
                       }
                     },
