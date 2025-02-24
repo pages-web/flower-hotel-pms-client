@@ -11,7 +11,7 @@ interface OfferProps {
   }>;
   title?: string;
   description?: string;
-  posts: IPost[];
+  posts?: IPost[];
 }
 
 export default function Offer({
@@ -27,7 +27,7 @@ export default function Offer({
       </h2>
 
       <div className="space-y-16">
-        {posts.map(
+        {posts?.map(
           (post, index) =>
             index < 3 && (
               <section

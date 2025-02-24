@@ -26,8 +26,8 @@ const ExtraDetail = ({ ...post }: IPost) => {
     <div className="w-full grid lg:grid-cols-2 gap-10 lg:gap-20">
       <Carousel>
         <CarouselContent>
-          {attachments.map((attachment) => (
-            <CarouselItem>
+          {attachments.map((attachment, index) => (
+            <CarouselItem key={index}>
               <Image
                 src={attachment.url}
                 width={600}

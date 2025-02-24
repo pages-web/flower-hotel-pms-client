@@ -34,8 +34,8 @@ const ProductDetailImages = ({
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
-            {attachments.map((attachment) => (
-              <CarouselItem className="aspect-square overflow-hidden rounded-sm">
+            {attachments.map((attachment, index) => (
+              <CarouselItem key={index} className="aspect-square overflow-hidden rounded-sm">
                 <FixedImage src={attachment.url} />
               </CarouselItem>
             ))}

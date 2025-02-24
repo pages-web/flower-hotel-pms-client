@@ -22,6 +22,7 @@ export default function Trend({ posts }: { posts: IPost[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post, index) => (
           <Link
+            key={index}
             href={`/room-detail/`}
             className={index === 1 ? "lg:col-span-2" : ""}
           >

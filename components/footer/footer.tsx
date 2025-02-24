@@ -81,7 +81,7 @@ export default function Footer() {
         <div className="flex justify-center">
           <div className="space-y-3 flex flex-col items-center">
             {footerSections2.map((section, index) => (
-              <p className="font-bold">{section.title}</p>
+              <p className="font-bold" key={index}>{section.title}</p>
             ))}
           </div>
           {/* <div>
