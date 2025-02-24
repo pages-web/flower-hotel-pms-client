@@ -78,7 +78,7 @@ const CurrentUser = () => {
     >
       <Link href="/login">
         <UserIcon className="h-5 w-5 stroke-black" />
-        <span>Sign In</span>
+        <span className="hidden lg:block">Sign In</span>
       </Link>
     </Button>
   );

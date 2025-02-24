@@ -10,12 +10,8 @@ const AccommodationLayout = ({ children }: PropsWithChildren) => {
     { name: "Homes", path: "/accommodation/homes" },
   ];
   return (
-    <div className="min-h-screen container space-y-10 py-10">
-      <Heading
-        title="Top Trending Hotel Rooms Views"
-        desc="A masterclass of sophistication, a stay at Atlantis The Royal delivers extraordinary luxury, unlike anywhere else."
-      />
-      <CategoryTabs tabs={categories} />
+    <div className="min-h-screen container space-y-10 py-20">
+      <Heading title="Top Trending Hotel Rooms Views" />
       {children}
     </div>
   );

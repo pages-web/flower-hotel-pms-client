@@ -14,14 +14,10 @@ export default function Location() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-displaysm font-normal-bold mb-2">
-        Browse offers at our premier hotel
+      <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
+        Browse offers at our hotel
       </h2>
-      <p className="text-gray-600 mb-6 text-muted-foreground">
-        Our beautiful hotels and resorts offer luxurious accommodation,
-        exclusive Sydney accommodation deals, signature experiences and
-        memorable destinations.
-      </p>
+
       <Card className="overflow-hidden">
         <div className="h-[400px] w-full">
           <iframe
@@ -34,7 +30,7 @@ export default function Location() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="lg:flex justify-center items-center">
+        {/* <div className="lg:flex justify-center items-center">
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="flex items-center space-x-2">
@@ -63,7 +59,7 @@ export default function Location() {
               <span className="ml-2">→</span>
             </Button>
           </CardFooter>
-        </div>
+        </div> */}
       </Card>
     </div>
   );

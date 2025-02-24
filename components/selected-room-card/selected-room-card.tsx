@@ -13,6 +13,8 @@ const SelectedRoomCard = () => {
   const [, removeRoom] = useAtom(removeSelectedRoomAtom);
   const nights = useAtomValue(nightsAtom);
 
+  console.log(selectedRooms, "selectedRooms");
+
   return (
     <div className="w-full flex flex-col gap-6">
       <h1 className="text-displayxs text-black">Your reservation</h1>

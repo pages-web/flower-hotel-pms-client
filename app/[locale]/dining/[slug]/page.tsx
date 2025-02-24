@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 import ScreenLoading from "@/components/screenLoading/screenLoading";
+import ExtraDetail from "@/components/extra-detail/extra-detail";
 
 const RoomDetail = ({ params }: IPageProps) => {
   const slug = params.slug;
@@ -22,7 +23,7 @@ const RoomDetail = ({ params }: IPageProps) => {
   }
   return (
     <div className="container min-h-screen py-20">
-      <ProductDetail {...post} />
+      <ExtraDetail {...post} />
     </div>
   );
 };

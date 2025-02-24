@@ -26,7 +26,9 @@ const FormSchema = z.object({
 });
 
 const GuestForm = () => {
-  const [reserveGuestAndRoom, setReserveGuestAndRoom] = useAtom(reserveGuestAndRoomAtom);
+  const [reserveGuestAndRoom, setReserveGuestAndRoom] = useAtom(
+    reserveGuestAndRoomAtom
+  );
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -72,7 +74,7 @@ const GuestForm = () => {
             />
           </div>
 
-          <FormField
+          {/* <FormField
             control={form.control}
             name="pet"
             render={({ field }) => (
@@ -93,7 +95,7 @@ const GuestForm = () => {
                 </FormControl>
               </FormItem>
             )}
-          />
+          /> */}
 
           <PopoverClose type="submit" className="self-end">
             <Button className="w-fit">Apply</Button>

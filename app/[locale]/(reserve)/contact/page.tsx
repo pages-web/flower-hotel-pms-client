@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ContactComponent() {
   return (
-    <div className="w-full max-w-[1600px] mx-auto p-6">
+    <div className="w-full min-h-screen container mx-auto px-6 py-20">
       <h1 className="text-3xl font-bold mb-4">Contact</h1>
       <p className="mb-8 text-gray-600">
         No request is too great and no detail too small. We are also here to
@@ -38,8 +38,8 @@ export default function ContactComponent() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold mb-4">Leave a message ?</h2>
-          <form className="space-y-4">
+          {/* <h2 className="text-2xl font-bold mb-4">Leave a message ?</h2> */}
+          {/* <form className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <Input placeholder="Enter your first name" />
               <Input placeholder="Enter your last name" />
@@ -52,7 +52,7 @@ export default function ContactComponent() {
             <Button className="w-full bg-teal-600 hover:bg-teal-700">
               Send message
             </Button>
-          </form>
+          </form> */}
         </div>
         <div className="h-[400px] lg:h-full rounded-lg overflow-hidden">
           <iframe

@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from "next-intl";
 import Image from "@/components/ui/image";
 import ReserveSelectDate from "@/components/reserve-select-date/reserve-select-date";
@@ -14,12 +15,38 @@ import Rooms from "@/components/top-rooms/top-rooms";
 import { pageOffers } from "@/components/offers/offerData";
 import { useAtomValue } from "jotai";
 import { currentConfigAtom } from "@/store/config";
+import { useQuery } from "@apollo/client";
+import { queries } from "@/sdk/graphql/cms";
+import { IPost } from "@/types/cms";
+import ScreenLoading from "@/components/screenLoading/screenLoading";
 
 export default function HomePage() {
   // const t = useTranslations("HomePage")
+  const { data, loading } = useQuery(queries.posts, {
+    variables: {
+      clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
+      perPage: 10000,
+    },
+  });
+
+  const rooms: IPost[] = data?.cmsPosts.filter(
+    (post: IPost) => post.tagIds[0] === "gwNn-3QevRDYw0fkMh5ny"
+  );
+
+  const services: IPost[] = data?.cmsPosts.filter(
+    (post: IPost) => post.tagIds[0] === "7cqjtUTEqwuL0R2nB9gyz"
+  );
+
+  const restaurants: IPost[] = data?.cmsPosts.filter(
+    (post: IPost) => post.tagIds[0] === "MN2F0CRukGM5ui08xP6ko"
+  );
+
+  if (loading) {
+    return <ScreenLoading />;
+  }
 
   return (
-    <div className="flex flex-col gap-8 lg:gap-16">
+    <div className="flex flex-col">
       <div className="relative overflow-hidden">
         <div className="min-h-screen flex flex-col justify-end container pt-10 pb-10 md:pb-12">
           <div className="space-y-6 md:mb-[84px]">
@@ -39,26 +66,12 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <Discount />
-      {/* <Discover /> */}
-      <Rooms />
-      {/* <Trending /> */}
-      {/* <Promo /> */}
-      {/* <HotelDining
-        title="Exclusive Dining Experience"
-        description="Experience the finest dining with a view of the city skyline."
-        buttonNames={["Gourmet", "Buffet", "Cafe", "Room Service"]}
-        images={[
-          "/images/image 8.png",
-          "/images/image1.png",
-          "/images/image 8.png",
-          "/images/image1.png",
-        ]}
-      /> */}
-      <Trend />
-      <Offer offers={pageOffers} title="RESTAURANT & BAR" description="" />
-      {/* <Gallery /> */}
-      <Location />
+      <div className="space-y-20 lg:space-y-40 mt-10">
+        <Rooms posts={rooms} />
+        <Trend posts={services} />
+        <Offer posts={restaurants} />
+        <Location />
+      </div>
     </div>
   );
 }

@@ -4,20 +4,25 @@ import AccommodationLayout from "./accommodation-layout";
 import ProductCard from "@/components/product-card/product-card";
 import { currentConfigAtom } from "@/store/config";
 import { useQuery } from "@apollo/client";
-import { queries } from "@/sdk/graphql/rooms";
 import { ICategory } from "@/types/products";
+import { UseGetPosts } from "@/sdk/queries/cms";
+import { queries } from "@/sdk/graphql/cms";
+import { IPost } from "@/types/cms";
 
 const Accommodation = () => {
-  const currentConfig = useAtomValue(currentConfigAtom);
-  const { data } = useQuery(queries.roomCategories, {
-    variables: { parentId: currentConfig?.roomCategories[0] },
+  const { data } = useQuery(queries.posts, {
+    variables: {
+      clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
+      tagIds: ["gwNn-3QevRDYw0fkMh5ny"],
+    },
   });
-  const categories = data?.productCategories;
+  const posts: IPost[] = data?.cmsPosts;
+
   return (
     <AccommodationLayout>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {categories?.map((category: ICategory, index: number) => {
-          return <ProductCard category={category} key={index} />;
+        {posts?.map((post, index) => {
+          return <ProductCard {...post} key={index} />;
         })}
       </div>
     </AccommodationLayout>

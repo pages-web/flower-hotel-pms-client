@@ -10,14 +10,14 @@ export default function Dining() {
   const { data } = useQuery(queries.posts, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
-      tagIds: ["MN2F0CRukGM5ui08xP6ko"],
+      tagIds: ["7cqjtUTEqwuL0R2nB9gyz"],
     },
   });
   const posts: IPost[] = data?.cmsPosts;
 
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">
-      <Heading title="Restaurant & Bar" />
+      <Heading title="Services" />
 
       <div className="flex flex-col gap-6">
         {posts?.map((post, index) => (

@@ -69,7 +69,7 @@ const PopupProductDetail = ({ ...room }: IProduct) => {
     onNavButtonClick
   );
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 h-fit">
       <h1 className="px-4 text-displayxs">{category?.name}</h1>
       <Carousel
         plugins={[plugin.current]}
@@ -80,14 +80,14 @@ const PopupProductDetail = ({ ...room }: IProduct) => {
         <CarouselContent>
           {images.map((image, index) => {
             return (
-              <CarouselItem key={index}>
+              <CarouselItem key={index} className="max-h-[500px]">
                 <Image
-                  // src={image?.url}
-                  src="/images/product.png"
+                  src={image?.url}
+                  // src="/images/product.png"
                   width={1000}
                   height={800}
                   quality={100}
-                  className="w-full"
+                  className="w-full h-full"
                 />
               </CarouselItem>
             );
@@ -112,7 +112,7 @@ const PopupProductDetail = ({ ...room }: IProduct) => {
             dangerouslySetInnerHTML={{ __html: category?.description || "" }}
           ></p>
         </div>
-        <div className="px-4 space-y-4">
+        {/* <div className="px-4 space-y-4">
           <h3 className="text-displayxs">Room best facilities</h3>
           <div className="grid md:grid-cols-2 gap-3 md:gap-6">
             {facilities.map((facility, index) => {
@@ -125,7 +125,7 @@ const PopupProductDetail = ({ ...room }: IProduct) => {
               );
             })}
           </div>
-        </div>
+        </div> */}
       </div>
       <Separator className="my-2" />
       <div className="px-4 flex justify-end">

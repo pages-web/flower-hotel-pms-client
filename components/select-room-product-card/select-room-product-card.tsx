@@ -26,26 +26,25 @@ const SelectRoomProductCard = ({ ...room }: IProduct) => {
         <span className="absolute text-textxs bg-white/60 py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 duration-300">
           Room details
         </span>
-        <h3 className="text-textlg absolute bottom-0 left-0 p-2 text-black font-semibold">
+        <h3 className="text-textlg absolute bottom-0 left-0 p-2 text-white font-semibold">
           {category?.name}{" "}
-          <span className="font-normal text-textxs">32(m2)</span>
+          {/* <span className="font-normal text-textxs">32(m2)</span> */}
         </h3>
       </div>
       <div className="flex items-start gap-2 border-b ">
-        <div className="space-y-2 w-[70%] border-r pr-2 pb-2">
+        <div className="space-y-2 w-[70%] pr-2 pb-2">
           {/* <h3 className="text-textxs text-black/50">Room description</h3> */}
           {/* <p className="flex text-textsm items-center gap-1">
             <Star className="w-4 h-4 mr-2" />
             4.7 (2,578 Reviews) Room(s): Size:
             <span className="text-black/50 "> 32(m2)</span>
           </p> */}
-          <p
+          {/* <p
             className="h-[106px] text-textsm line-clamp-5 text-black/50"
             dangerouslySetInnerHTML={{ __html: category?.description || "" }}
-          ></p>
+          ></p> */}
         </div>
-        <div className="flex flex-col gap-2">
-          {/* <h3 className="text-textxs text-black/50">Accommodation</h3> */}
+        {/* <div className="flex flex-col gap-2">
           <div className="flex">
             <TooltipProvider>
               <Tooltip>
@@ -65,7 +64,7 @@ const SelectRoomProductCard = ({ ...room }: IProduct) => {
             <BedDouble className="w-5 h-5" />
             <span className="text-textxs">Queen Size Bed</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* <div className="flex gap-2 py-2">
