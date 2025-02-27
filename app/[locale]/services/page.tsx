@@ -2,6 +2,7 @@
 import HotelDining from "@/components/dining/dining";
 import Heading from "@/components/heading/heading";
 import RestaurantCard from "@/components/restaurant-card/restaurant-card";
+import ServiceCard from "@/components/service-card/service-card";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 import { useQuery } from "@apollo/client";
@@ -21,7 +22,7 @@ export default function Dining() {
 
       <div className="flex flex-col gap-6">
         {posts?.map((post, index) => (
-          <RestaurantCard post={post} key={index} />
+          <ServiceCard post={post} key={index} />
         ))}
       </div>
     </div>

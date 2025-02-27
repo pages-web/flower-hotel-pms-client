@@ -74,7 +74,7 @@ const Image = ({
         !skipAnimation && loading
           ? "scale-110 blur-2xl grayscale"
           : "scale-100 blur-0 grayscale-0",
-        srcI === PLACEHOLDER && "object-contain p-10",
+        srcI === PLACEHOLDER && "object-contain p-10 bg-black/60",
         className
       )}
       sizes={

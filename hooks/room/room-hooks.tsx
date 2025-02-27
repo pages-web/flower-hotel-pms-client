@@ -55,7 +55,7 @@ export const useSelectRoom = ({ room }: { room: IRoom }) => {
   const HandleSelectRoom = () => {
     setSelectedRoom({
       ...selectedRoom,
-      room: room,
+      room,
     });
     addSelectedRoom(reserveGuestAndRoom.room);
     setSelectedRoom(RESET);
