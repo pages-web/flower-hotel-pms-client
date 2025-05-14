@@ -15,7 +15,7 @@ const SelectedRoomCard = () => {
   const nights = useAtomValue(nightsAtom);
 
   const fixedSelectedRooms = selectedRooms.reduce<any[]>((acc, curr) => {
-    let last = acc[acc.length - 1];
+    const last = acc[acc.length - 1];
 
     if (
       last &&
@@ -31,8 +31,6 @@ const SelectedRoomCard = () => {
 
     return acc;
   }, []);
-
-  console.log(fixedSelectedRooms, "fixedSelectedRooms");
 
   return (
     <div className="w-full flex flex-col gap-6">

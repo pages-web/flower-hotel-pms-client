@@ -25,9 +25,7 @@ export function NavbarTop({
     { href: "/accommodation", label: "Rooms" },
     { href: "/dining", label: "Restaurant & Bar" },
     { href: "/services", label: "Services" },
-    // { href: "/wellness", label: "Wellness" },
-    // { href: "/offer", label: "Offer" },
-    // { href: "/gallery", label: "Gallery" },
+    { href: "/meetings", label: "Meetings & Events" },
     { href: "/contact", label: "Contact" },
   ];
 

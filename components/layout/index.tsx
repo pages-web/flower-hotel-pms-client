@@ -4,6 +4,7 @@ import BookingNavbarTopContent from "../booking-navbar-top-content/booking-navba
 import Footer from "../footer/footer";
 import CurrentUser from "@/containers/auth/current-user";
 import CheckDealDuration from "./checkDealDuration";
+import LanguageButton from "../language-button/language-button";
 
 const DefaultLayout = ({
   children,
@@ -12,8 +13,10 @@ const DefaultLayout = ({
   return (
     <>
       <NavbarTop>
-        {/* <LanguageButton locale={locale} /> */}
-        <CurrentUser />
+        <div>
+          <LanguageButton locale={locale} />
+          <CurrentUser />
+        </div>
       </NavbarTop>
       <BookingNavbarTop>
         <BookingNavbarTopContent />
