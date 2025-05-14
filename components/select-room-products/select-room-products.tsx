@@ -40,7 +40,7 @@ const SelectRoomProducts = ({ className }: { className?: string }) => {
   }
 
   return (
-    <div className={`grid lg:grid-cols-2 gap-y-3 gap-x-6 ${className}`}>
+    <div className={`grid lg:grid-cols-2 gap-3 ${className}`}>
       {roomCategoriesByProduct?.map((room, index) => {
         return <SelectProductCard key={index} room={room} />;
       })}

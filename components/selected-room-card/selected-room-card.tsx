@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { useRouter } from "@/i18n/routing";
 import { formatNumberWithCommas } from "@/lib/formatNumber";
 import { removeSelectedRoomAtom, selectedRoomsAtom } from "@/store/rooms";
+import { IProduct, IReserveRoomFullDetail } from "@/types/products";
 
 const SelectedRoomCard = () => {
   const router = useRouter();
@@ -13,21 +14,36 @@ const SelectedRoomCard = () => {
   const [, removeRoom] = useAtom(removeSelectedRoomAtom);
   const nights = useAtomValue(nightsAtom);
 
-  console.log(selectedRooms, "selectedRooms");
+  const fixedSelectedRooms = selectedRooms.reduce<any[]>((acc, curr) => {
+    const last = acc[acc.length - 1];
+
+    if (
+      last &&
+      Array.isArray(last) &&
+      last[0].room.categoryId === curr.room.categoryId
+    ) {
+      last.push(curr);
+    } else if (last && last.room?.categoryId === curr.room.categoryId) {
+      acc[acc.length - 1] = [last, curr];
+    } else {
+      acc.push(curr);
+    }
+
+    return acc;
+  }, []);
 
   return (
     <div className="w-full flex flex-col gap-6">
       <h1 className="text-displayxs text-black">Your reservation</h1>
 
       <div className="flex flex-col gap-4">
-        {selectedRooms.map((product, index) => (
+        {fixedSelectedRooms.map((product, index) => (
           <div
             key={index}
             className="space-y-3 py-4 px-4 border rounded-lg shadow-sm cursor-pointer hover:border-destructive duration-200"
             onClick={() => removeRoom(product.room._id)}
           >
             <div className="flex gap-4">
-              <h1 className="w-20 text-textsm">Room {index + 1}:</h1>
               <div className="w-full flex justify-between">
                 <div>
                   <h2>{product.room?.category?.name}</h2>
@@ -42,7 +58,7 @@ const SelectedRoomCard = () => {
               </div>
             </div>
 
-            {product.extras && (
+            {/* {product.extras && (
               <div className="flex gap-4 text-textsm">
                 <h1 className="w-20 text-textsm">Extras:</h1>
                 <div className="w-full flex justify-between">
@@ -60,11 +76,11 @@ const SelectedRoomCard = () => {
                   </div>
                 </div>
               </div>
-            )}
+            )} */}
 
             <Separator />
 
-            <div className="flex justify-end gap-1">
+            {/* <div className="flex justify-end gap-1">
               <h2>Total: </h2>
               <h2 className="justify-self-end">
                 {product.extras
@@ -78,7 +94,7 @@ const SelectedRoomCard = () => {
                   : formatNumberWithCommas(product.room.unitPrice * nights)}
                 ₮
               </h2>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

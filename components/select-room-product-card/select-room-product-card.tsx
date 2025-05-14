@@ -16,7 +16,7 @@ const SelectRoomProductCard = ({ ...room }: IProduct) => {
 
   return (
     <div className="text-start space-y-3 cursor-pointer group">
-      <div className="h-[300px] overflow-hidden rounded-xl relative flex justify-center items-center">
+      <div className="h-[300px] overflow-hidden rounded-lg relative flex justify-center items-center">
         <Image
           src={room.attachment?.url || ""}
           width={1200}

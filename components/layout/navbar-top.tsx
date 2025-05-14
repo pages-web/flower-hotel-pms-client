@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
 import { Separator } from "../ui/separator";
 import Image from "../ui/image";
 import { Suspense, useState } from "react";
@@ -19,14 +19,13 @@ export function NavbarTop({
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const menuItems = [
     { href: "/accommodation", label: "Rooms" },
     { href: "/dining", label: "Restaurant & Bar" },
     { href: "/services", label: "Services" },
-    // { href: "/wellness", label: "Wellness" },
-    // { href: "/offer", label: "Offer" },
-    // { href: "/gallery", label: "Gallery" },
+    { href: "/meetings", label: "Meetings & Events" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -38,11 +37,7 @@ export function NavbarTop({
       {...rest}
     >
       <div className="container flex md:flex-row gap-4 md:gap-[clamp(1rem,3vw,3rem)] justify-end lg:justify-between items-center w-full h-[70px] lg:h-[80px] md:sticky top-0 pt-0">
-        <Link
-          href="/"
-          aria-label="SF Homepage"
-          className="w-fit absolute top-0 left-4 h-24 lg:h-28 text-2xl overflow-hidden"
-        >
+        <div className="w-fit absolute -top-1 lg:-top-2 left-4 h-24 lg:h-28 text-2xl overflow-hidden">
           <Image
             src={"/images/logo2.png"}
             height={300}
@@ -53,9 +48,12 @@ export function NavbarTop({
             alt=""
             className="object-contain h-full w-full object-left"
           />
-        </Link>
+        </div>
 
-        <div className="w-fit h-20 lg:h-28 text-2xl overflow-hidden opacity-0">
+        <div
+          className="w-fit h-24 lg:h-28 text-2xl overflow-hidden opacity-0 cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <Image
             src={"/images/logo2.png"}
             height={300}

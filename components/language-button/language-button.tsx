@@ -78,23 +78,6 @@ const LanguageButton = ({ locale }: { locale: string }) => {
           </div>
         </SheetContent>
       </Sheet>
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-black/50 z-50 ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
-      />
-      {!isMenuOpen && (
-        <div className="hidden xl:flex gap-6">
-          <Link href={pathname} locale={locale === "en" ? "mn" : "en"}>
-            <Button variant="default">{locale === "en" ? "MN" : "EN"}</Button>
-          </Link>
-          <Link href="/login">
-            <Button variant={"outline"} className="text-black">
-              Log in
-            </Button>
-          </Link>
-        </div>
-      )}
     </div>
   );
 };

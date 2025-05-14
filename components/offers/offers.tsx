@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { IPost } from "@/types/cms";
 import Image from "../ui/image";
+import { useRouter } from "@/i18n/routing";
 
 interface OfferProps {
   offers?: Array<{
@@ -20,6 +21,7 @@ export default function Offer({
   description,
   posts,
 }: OfferProps) {
+  const router = useRouter();
   return (
     <div className="container py-8">
       <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
@@ -48,7 +50,11 @@ export default function Offer({
                 <div className="md:w-1/2 flex flex-col justify-center gap-4">
                   <h2 className="text-displaymd font-semibold">{post.title}</h2>
                   <p className="text-textlg text-black/40">{post.excerpt}</p>
-                  <Button className="w-fit" variant={"outline"}>
+                  <Button
+                    className="w-fit"
+                    variant={"outline"}
+                    onClick={() => router.push(`/dining/${post._id}`)}
+                  >
                     View more
                   </Button>
                 </div>

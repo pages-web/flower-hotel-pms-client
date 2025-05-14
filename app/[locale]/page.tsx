@@ -58,11 +58,12 @@ export default function HomePage() {
         </div>
         <div className="h-[1000px] md:min-h-screen w-full absolute -top-[84px] left-0 -z-10">
           <Image
-            src="https://lh3.googleusercontent.com/p/AF1QipPYDHDE4l30MDUE_zNEKHfcBxExHwxZYOJQZwMh=s680-w680-h510"
-            width={1440}
-            height={920}
+            src="/images/flowerBg.jpg"
+            width={2000}
+            height={1500}
             quality={100}
             className="h-full md:w-full brightness-[.8]"
+            alt=""
           />
         </div>
       </div>

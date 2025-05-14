@@ -23,7 +23,7 @@ export default function Trend({ posts }: { posts: IPost[] }) {
         {posts.map((post, index) => (
           <Link
             key={index}
-            href={`/room-detail/`}
+            href={`/services/${post._id}`}
             className={index === 1 ? "lg:col-span-2" : ""}
           >
             <div className="h-full bg-white group transition-all ">

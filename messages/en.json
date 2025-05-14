@@ -1,6 +1,34 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "header": {
+    "titles": [
+      { "href": "/accommodation", "title": "Rooms" },
+      { "href": "/dining", "title": "Restaurant & Bar" },
+      { "href": "/services", "title": "Services" },
+      { "href": "/contact", "title": "Contact" }
+    ]
+  },
+  "footer": {
+    "credit": "2025 All rights reserved.",
+    "policy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+
+  "homeRoomsSections": {
+    "title": "Top Trending Hotel Rooms Views"
+  },
+
+  "commonWords": {
+    "checkin": "Check-in",
+    "room": "Room",
+    "guest": "Guest",
+    "guests": "Guests",
+    "adult": "Adult",
+    "adults": "Adults",
+    "child": "Child",
+    "children": "Children",
+    "reserve": "Reserve",
+    "removeDate": "Remove date",
+    "detail": "Detail",
+    "homeBookingTitle": "Find your best staycation"
   }
 }
