@@ -32,7 +32,7 @@ const LanguageButton = ({ locale }: { locale: string }) => {
     <div className="flex justify-center items-center">
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
-          <Button
+          {/* <Button
             className="bg-black flex xl:hidden"
             onClick={() => setIsMenuOpen(true)}
           >
@@ -42,7 +42,7 @@ const LanguageButton = ({ locale }: { locale: string }) => {
               <Menu className="h-5 w-5" />
             )}
             <span className="sr-only">Toggle menu</span>
-          </Button>
+          </Button> */}
         </SheetTrigger>
         <SheetContent side="right" className="w-full sm:w-[300px]">
           <SheetHeader>

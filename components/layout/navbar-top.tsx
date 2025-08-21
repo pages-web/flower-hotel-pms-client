@@ -1,17 +1,16 @@
 "use client";
+
 import { Link, useRouter } from "@/i18n/routing";
-import { Separator } from "../ui/separator";
 import Image from "../ui/image";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Facebook, Twitter, Phone, MapPin } from "lucide-react";
 
 export function NavbarTop({
   children,
@@ -21,23 +20,26 @@ export function NavbarTop({
 }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+
   const menuItems = [
     { href: "/accommodation", label: "Rooms" },
     { href: "/dining", label: "Restaurant & Bar" },
     { href: "/services", label: "Services" },
     { href: "/meetings", label: "Meetings & Events" },
-    { href: "/contact", label: "Contact" },
+    { href: "/special-offers", label: "Special Offers" },
+    { href: "/Local-Information", label: "Local Information" },
+    { href: "/news", label: "News" },
+    { href: "/(reserve)", label: "Contact" },
   ];
 
   return (
     <header
-      className={
-        "z-50 sticky top-0 md:shadow-md bg-background text-white w-full border-b"
-      }
+      className="z-50 sticky top-0 md:shadow-md bg-background text-white w-full border-b"
       {...rest}
     >
-      <div className="container flex md:flex-row gap-4 md:gap-[clamp(1rem,3vw,3rem)] justify-end lg:justify-between items-center w-full h-[70px] lg:h-[80px] md:sticky top-0 pt-0">
-        <div className="w-fit absolute -top-1 lg:-top-2 left-4 h-24 lg:h-28 text-2xl overflow-hidden">
+      <div className="container flex md:flex-row gap-4 md:gap-[clamp(1rem,3vw,3rem)] justify-end lg:justify-between items-center w-full h-[70px] lg:h-[80px]">
+        {/* Logo */}
+        <div className="w-fit absolute -top-1 lg:-top-2 left-4 h-24 lg:h-28 overflow-hidden cursor-pointer">
           <Image
             src={"/images/logo2.png"}
             height={300}
@@ -45,49 +47,58 @@ export function NavbarTop({
             quality={100}
             skipAnimation
             priority
-            alt=""
+            alt="Flower Hotel Logo"
             className="object-contain h-full w-full object-left"
+            onClick={() => router.push("/")}
           />
         </div>
 
-        <div
-          className="w-fit h-24 lg:h-28 text-2xl overflow-hidden opacity-0 cursor-pointer"
-          onClick={() => router.push("/")}
-        >
-          <Image
-            src={"/images/logo2.png"}
-            height={300}
-            width={300}
-            quality={100}
-            skipAnimation
-            priority
-            alt=""
-            className="object-contain h-full w-full object-left"
-          />
-        </div>
-
-        <nav className="hidden lg:flex gap-2 md:gap-4">
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex gap-2 md:gap-4 ml-auto">
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={item.label}
-              className="text-black text-textsm px-3 py-2"
+              className="text-black text-sm px-3 py-2 hover:text-blue-600 transition-colors"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
+        {/* Extra children (ex: buttons) */}
         {children}
 
+        {/* Social icons */}
+        <div className="hidden lg:flex gap-4 ml-6">
+          <a href="./contact" aria-label="Location">
+            <MapPin className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
+          </a>
+          <a href="/contact" aria-label="Phone">
+            <Phone className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
+          </a>
+          <a
+            href="https://www.facebook.com/flower.hotel"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
+          </a>
+          {/* <a href="#" aria-label="Twitter">
+            <Twitter className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
+          </a> */}
+        </div>
+
+        {/* Mobile menu */}
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger className="block lg:hidden gap-2 md:gap-4">
+          <SheetTrigger className="block lg:hidden">
             <Menu color="black" />
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Flower hotel</SheetTitle>
+              <SheetTitle>Flower Hotel</SheetTitle>
             </SheetHeader>
 
             <div className="flex flex-col mt-10">
@@ -96,12 +107,33 @@ export function NavbarTop({
                   key={item.href}
                   href={item.href}
                   aria-label={item.label}
-                  className="text-black text-textsm px-3 py-2"
+                  className="text-black text-sm px-3 py-2 hover:text-blue-600 transition-colors"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
+
+              {/* Socials for mobile */}
+              <div className="flex gap-4 mt-6">
+                {/* <a href="/contact" aria-label="Location">
+                  <MapPin className="w-5 h-5 text-black" />
+                </a>
+                <a href="/contact" aria-label="Phone">
+                  <Phone className="w-5 h-5 text-black" />
+                </a> */}
+                <a
+                  href="https://www.facebook.com/flower.hotel"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5 text-black" />
+                </a>
+                {/* <a href="#" aria-label="Twitter">
+                  <Twitter className="w-5 h-5 text-black" />
+                </a> */}
+              </div>
             </div>
           </SheetContent>
         </Sheet>

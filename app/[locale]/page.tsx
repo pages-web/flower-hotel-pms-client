@@ -56,13 +56,13 @@ export default function HomePage() {
             <ReserveSelectDate />
           </div>
         </div>
-        <div className="h-[1000px] md:min-h-screen w-full absolute -top-[84px] left-0 -z-10">
+        <div className="h-[400px] md:h-[850px] w-full absolute -top-[84px] left-0 -z-10">
           <Image
-            src="/images/flowerBg.jpg"
+            src="/images/-8654223224160323167_1050_x_500.png"
             width={2000}
             height={1500}
             quality={100}
-            className="h-full md:w-full brightness-[.8]"
+            className="h-full w-full brightness-[.8] object-cover"
             alt=""
           />
         </div>

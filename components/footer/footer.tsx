@@ -51,11 +51,11 @@ const footerSections2 = [
 ];
 
 const socialIcons = [
-  {
-    href: "https://www.instagram.com/flower_hotel_ulaanbaatar",
-    label: "Instagram",
-    icon: "/images/instagram.svg",
-  },
+  // {
+  //   href: "https://www.instagram.com/flower_hotel_ulaanbaatar",
+  //   label: "Instagram",
+  //   icon: "/images/instagram.svg",
+  // },
   {
     href: "https://www.facebook.com/flowerhotelulaanbaatar",
     label: "Facebook",
@@ -81,7 +81,9 @@ export default function Footer() {
         <div className="flex justify-center">
           <div className="space-y-3 flex flex-col items-center">
             {footerSections2.map((section, index) => (
-              <p className="font-bold" key={index}>{section.title}</p>
+              <p className="font-bold" key={index}>
+                {section.title}
+              </p>
             ))}
           </div>
           {/* <div>

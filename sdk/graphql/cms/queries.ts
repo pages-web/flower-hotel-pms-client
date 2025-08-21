@@ -48,7 +48,7 @@ const posts = gql`
   query CmsPosts(
     $clientPortalId: String!
     $featured: Boolean
-    $categoryId: String
+    $categoryIds: [String]
     $searchValue: String
     $status: PostStatus
     $page: Int
@@ -58,7 +58,7 @@ const posts = gql`
     cmsPosts(
       clientPortalId: $clientPortalId
       featured: $featured
-      categoryId: $categoryId
+      categoryIds: $categoryIds
       searchValue: $searchValue
       status: $status
       page: $page
