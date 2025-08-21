@@ -29,7 +29,7 @@ export function NavbarTop({
     { href: "/special-offers", label: "Special Offers" },
     { href: "/Local-Information", label: "Local Information" },
     { href: "/news", label: "News" },
-    { href: "/(reserve)", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (

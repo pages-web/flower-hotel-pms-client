@@ -29,7 +29,7 @@ export default function Page() {
       <section className="container mx-auto px-4 py-10">
         <div className="space-y-10">
           {/* Item 1 */}
-          <div className="grid md:grid-cols-2 gap-6 items-center">
+          {/* <div className="grid md:grid-cols-2 gap-6 items-center">
             <a
               href={`/${params.locale}/welcome-to-j-karaoke/`}
               className="block overflow-hidden rounded-2xl shadow-md hover:scale-105 transition-transform"
@@ -57,7 +57,7 @@ export default function Page() {
                 {t("information")}
               </a>
             </div>
-          </div>
+          </div> */}
 
           {/* Item 2 */}
           <div className="grid md:grid-cols-2 gap-6 items-center">

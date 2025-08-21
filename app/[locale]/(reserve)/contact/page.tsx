@@ -19,7 +19,7 @@ export default function ContactComponent() {
             <div>
               <h2 className="font-semibold text-lg text-gray-800">Phone</h2>
               <p className="text-gray-600">+77004949</p>
-              <p className="text-gray-600">90114750</p>
+              <p className="text-gray-600">+90114750</p>
             </div>
           </div>
 
@@ -41,6 +41,22 @@ export default function ContactComponent() {
               <p className="text-gray-600">reservation@flower-hotel.mn</p>
             </div>
           </div>
+
+          <h2 className="text-2xl font-bold mb-4">Leave a message ?</h2>
+          <form className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <Input placeholder="Enter your first name" />
+              <Input placeholder="Enter your last name" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <Input type="email" placeholder="Enter your email" />
+              <Input type="tel" placeholder="Enter your phone" />
+            </div>
+            <Textarea placeholder="Limit 250 characters" />
+            <Button className="w-full bg-teal-600 hover:bg-teal-700">
+              Send message
+            </Button>
+          </form>
         </div>
 
         <div className="h-[400px] lg:h-full rounded-lg overflow-hidden">
@@ -57,19 +73,3 @@ export default function ContactComponent() {
     </div>
   );
 }
-
-//  <h2 className="text-2xl font-bold mb-4">Leave a message ?</h2>
-//           <form className="space-y-4">
-//             <div className="grid grid-cols-2 gap-4">
-//               <Input placeholder="Enter your first name" />
-//               <Input placeholder="Enter your last name" />
-//             </div>
-//             <div className="grid grid-cols-2 gap-4">
-//               <Input type="email" placeholder="Enter your email" />
-//               <Input type="tel" placeholder="Enter your phone" />
-//             </div>
-//             <Textarea placeholder="Limit 250 characters" />
-//             <Button className="w-full bg-teal-600 hover:bg-teal-700">
-//               Send message
-//             </Button>
-//           </form>

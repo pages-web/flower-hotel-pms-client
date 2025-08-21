@@ -20,7 +20,7 @@ export default function Meetings() {
     <div className="container min-h-screen space-y-10 px-4 py-20">
       <Heading title="Meetings & Events" />
 
-      <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts?.map((post, index) => (
           <ServiceCard post={post} key={index} />
         ))}

@@ -1,7 +1,5 @@
 "use client";
-import HotelDining from "@/components/dining/dining";
 import Heading from "@/components/heading/heading";
-import RestaurantCard from "@/components/restaurant-card/restaurant-card";
 import ServiceCard from "@/components/service-card/service-card";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
@@ -20,10 +18,14 @@ export default function Dining() {
     <div className="container min-h-screen space-y-10 px-4 py-20">
       <Heading title="Services" />
 
-      <div className="flex flex-col gap-6">
-        {posts?.map((post, index) => (
-          <ServiceCard post={post} key={index} />
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {posts?.slice(0, 5).map((post) => (
+          <ServiceCard post={post} key={post._id} />
         ))}
+
+        {/* Хэрэв яг 6 grid item хэрэгтэй бол → хоосон box нэмнэ */}
+        {posts && posts.length === 5 && <div className="hidden md:block" />}
       </div>
     </div>
   );

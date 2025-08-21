@@ -6,14 +6,14 @@ import { Button } from "../ui/button";
 const RestaurantCard = ({ post }: { post: IPost }) => {
   return (
     <Link href={`/dining/${post._id}`}>
-      <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 flex flex-col md:flex-row">
+      <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
         {/* Image Section */}
         {post.thumbnail?.url && (
-          <div className="md:w-1/2 max-h-60 md:max-h-80 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <div className="w-full h-60 md:h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
             <Image
               src={post.thumbnail.url}
-              width={400}
-              height={200}
+              width={600}
+              height={400}
               className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
               alt={post.title}
             />
@@ -21,11 +21,11 @@ const RestaurantCard = ({ post }: { post: IPost }) => {
         )}
 
         {/* Text Section */}
-        <div className="p-5 md:p-7 flex flex-col justify-between space-y-3 md:w-1/2">
+        <div className="p-5 md:p-7 flex flex-col justify-between space-y-3 flex-1">
           <h3 className="text-lg md:text-xl font-semibold text-gray-900">
             {post.title}
           </h3>
-          <p className="text-sm md:text-base font-medium text-gray-500">
+          <p className="text-sm md:text-base font-medium text-gray-500 line-clamp-3">
             {post.excerpt}
           </p>
           <Button className="mt-auto bg-primary text-white hover:bg-primary-dark font-semibold">
