@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "middleware.ts",
-    "app/api/create-payment-intent.js"
+    "app/api/create-payment-intent.js",
+    "components/layout/lan"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,4 @@
 "use client";
-
 import { Link, useRouter } from "@/i18n/routing";
 import Image from "../ui/image";
 import { useState } from "react";
@@ -10,7 +9,18 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Menu, Facebook, Twitter, Phone, MapPin } from "lucide-react";
+import { Menu, Facebook, Phone, MapPin } from "lucide-react";
+
+import { Dropdown, Space } from "antd";
+import { DownOutlined, GlobalOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+
+// 🌐 Хэлний сонголт
+const langItems: MenuProps["items"] = [
+  { key: "en", label: "EN" },
+  { key: "mn", label: "MN" },
+  { key: "jp", label: "日本語" },
+];
 
 export function NavbarTop({
   children,
@@ -31,6 +41,11 @@ export function NavbarTop({
     { href: "/news", label: "News" },
     { href: "/contact", label: "Contact" },
   ];
+
+  // Хэл сонгох үед
+  const onLangClick: MenuProps["onClick"] = ({ key }) => {
+    router.push(`/${key}`);
+  };
 
   return (
     <header
@@ -67,9 +82,6 @@ export function NavbarTop({
           ))}
         </nav>
 
-        {/* Extra children (ex: buttons) */}
-        {children}
-
         {/* Social icons */}
         <div className="hidden lg:flex gap-4 ml-6">
           <a href="./contact" aria-label="Location">
@@ -86,10 +98,25 @@ export function NavbarTop({
           >
             <Facebook className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
           </a>
-          {/* <a href="#" aria-label="Twitter">
-            <Twitter className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
-          </a> */}
         </div>
+        {/* Language dropdown */}
+        <Dropdown
+          menu={{ items: langItems, onClick: onLangClick }}
+          placement="bottomRight"
+        >
+          <a
+            onClick={(e) => e.preventDefault()}
+            className="cursor-pointer text-black"
+          >
+            <Space>
+              <GlobalOutlined />
+              {/* Language */}
+              <DownOutlined />
+            </Space>
+          </a>
+        </Dropdown>
+        {/* Extra children (ex: buttons) */}
+        {children}
 
         {/* Mobile menu */}
         <Sheet open={open} onOpenChange={setOpen}>
@@ -116,12 +143,6 @@ export function NavbarTop({
 
               {/* Socials for mobile */}
               <div className="flex gap-4 mt-6">
-                {/* <a href="/contact" aria-label="Location">
-                  <MapPin className="w-5 h-5 text-black" />
-                </a>
-                <a href="/contact" aria-label="Phone">
-                  <Phone className="w-5 h-5 text-black" />
-                </a> */}
                 <a
                   href="https://www.facebook.com/flower.hotel"
                   target="_blank"
@@ -130,9 +151,6 @@ export function NavbarTop({
                 >
                   <Facebook className="w-5 h-5 text-black" />
                 </a>
-                {/* <a href="#" aria-label="Twitter">
-                  <Twitter className="w-5 h-5 text-black" />
-                </a> */}
               </div>
             </div>
           </SheetContent>
