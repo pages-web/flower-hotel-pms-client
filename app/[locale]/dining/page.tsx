@@ -3,17 +3,17 @@ import HotelDining from "@/components/dining/dining";
 import Heading from "@/components/heading/heading";
 import RestaurantCard from "@/components/restaurant-card/restaurant-card";
 import { queries } from "@/sdk/graphql/cms";
+import { usePosts } from "@/sdk/queries/cms";
 import { IPost } from "@/types/cms";
 import { useQuery } from "@apollo/client";
+import { useLocale } from "next-intl";
 
 export default function Dining() {
-  const { data } = useQuery(queries.posts, {
-    variables: {
-      clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
-      tagIds: ["MN2F0CRukGM5ui08xP6ko"],
-    },
+  const locale = useLocale();
+  const { posts } = usePosts({
+    language: locale,
+    tagIds: ["MN2F0CRukGM5ui08xP6ko"],
   });
-  const posts: IPost[] = data?.cmsPosts;
 
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">

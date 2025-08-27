@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const postDetail = gql`
-  query CmsPost($id: String) {
-    cmsPost(_id: $id) {
+  query CmsPost($id: String, $language: String) {
+    cmsPost(_id: $id, language: $language) {
       _id
       authorKind
       authorId
@@ -54,6 +54,7 @@ const posts = gql`
     $page: Int
     $perPage: Int
     $tagIds: [String]
+    $language: String
   ) {
     cmsPosts(
       clientPortalId: $clientPortalId
@@ -64,6 +65,7 @@ const posts = gql`
       page: $page
       perPage: $perPage
       tagIds: $tagIds
+      language: $language
     ) {
       _id
       authorKind

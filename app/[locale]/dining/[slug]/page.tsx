@@ -8,15 +8,14 @@ import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 import ScreenLoading from "@/components/screenLoading/screenLoading";
 import ExtraDetail from "@/components/extra-detail/extra-detail";
+import { usePostDetail } from "@/sdk/queries/cms";
+import { useLocale } from "next-intl";
 
 const RoomDetail = ({ params }: IPageProps) => {
+  const locale = useLocale();
   const slug = params.slug;
 
-  const { data, loading } = useQuery(queries.postDetail, {
-    variables: { id: slug },
-  });
-
-  const post: IPost = data?.cmsPost;
+  const { post, loading } = usePostDetail(slug, locale);
 
   if (loading) {
     return <ScreenLoading />;

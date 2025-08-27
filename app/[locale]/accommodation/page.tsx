@@ -5,7 +5,6 @@ import ProductCard from "@/components/product-card/product-card";
 import { currentConfigAtom } from "@/store/config";
 import { useQuery } from "@apollo/client";
 import { ICategory } from "@/types/products";
-import { UseGetPosts } from "@/sdk/queries/cms";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 
