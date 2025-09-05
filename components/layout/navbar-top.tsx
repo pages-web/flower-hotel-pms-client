@@ -20,7 +20,7 @@ import type { MenuProps } from "antd";
 const langItems: MenuProps["items"] = [
   { key: "en", label: "EN" },
   { key: "mn", label: "MN" },
-  { key: "jp", label: "日本語" },
+  { key: "jp", label: "日本語" }, // зөвшөөрөгдөөгүй тул safety check хийх хэрэгтэй
 ];
 
 export function NavbarTop({
@@ -35,7 +35,7 @@ export function NavbarTop({
   const t = useTranslations("restran");
 
   const menuItems = [
-    { href: "/accommodation", label: t("rooms") }, // Засварласан хэсэг
+    { href: "/accommodation", label: t("rooms") },
     { href: "/dining", label: t("restauran") },
     { href: "/services", label: t("services") },
     { href: "/meetings", label: t("Meetings") },
@@ -45,9 +45,14 @@ export function NavbarTop({
     { href: "/contact", label: t("Contact") },
   ];
 
-  // Хэл сонгох үед
+  // 🌐 Хэл сонгох үед (type fix)
   const onLangClick: MenuProps["onClick"] = ({ key }) => {
-    router.replace(pathname, { locale: key });
+    if (key === "en" || key === "mn") {
+      router.replace(pathname, { locale: key });
+    } else {
+      // fallback (JP эсвэл өөр хэл сонгосон үед English рүү)
+      router.replace(pathname, { locale: "en" });
+    }
   };
 
   return (
@@ -81,7 +86,6 @@ export function NavbarTop({
               className="relative group text-gray-800 text-sm font-medium px-3 py-2 hover:text-blue-600 transition-colors"
             >
               {item.label}
-              {/* Доор underline hover animation нэмэх */}
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
             </Link>
           ))}
@@ -90,8 +94,6 @@ export function NavbarTop({
         {/* Social icons */}
         <div className="hidden lg:flex gap-2 ml-6">
           <a href="/contact" aria-label="Location">
-            {" "}
-            {/* Засварласан хэсэг */}
             <MapPin className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
           </a>
           <a href="/contact" aria-label="Phone">
@@ -118,14 +120,10 @@ export function NavbarTop({
           >
             <Space>
               <GlobalOutlined />
-              {/* Language */}
               <DownOutlined />
             </Space>
           </a>
         </Dropdown>
-
-        {/* Extra children (ex: buttons) */}
-        {children}
 
         {/* Mobile menu */}
         <Sheet open={open} onOpenChange={setOpen}>
@@ -153,8 +151,6 @@ export function NavbarTop({
               {/* Socials for mobile */}
               <div className="flex gap-4 mt-6">
                 <a href="/contact" aria-label="Location">
-                  {" "}
-                  {/* Засварласан хэсэг */}
                   <MapPin className="w-5 h-5 text-black" />
                 </a>
                 <a href="/contact" aria-label="Phone">
