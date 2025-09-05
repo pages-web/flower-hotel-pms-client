@@ -13,7 +13,15 @@
     "terms": "Terms of Service"
   },
   "restran": {
-    "Detail": "Detail"
+    "Detail": "Detail",
+    "rooms": "Rooms",
+    "restauran": "Rerstaurant & Bar",
+    "services": "Services",
+    "Meetings": "Meetings & Events",
+    "Special Offers": "Special Offers",
+    "Local Information": "Local Information",
+    "News": "News",
+    "Contact": "Contact"
   },
 
   "homeRoomsSections": {

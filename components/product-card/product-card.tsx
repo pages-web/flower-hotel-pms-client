@@ -9,8 +9,10 @@ import { useQuery } from "@apollo/client";
 import { queries } from "@/sdk/graphql/rooms";
 import { Button } from "../ui/button";
 import { IPost } from "@/types/cms";
+import { useTranslations } from "next-intl";
 
 const ProductCard = ({ ...post }: IPost) => {
+  const t = useTranslations("restran");
   return (
     <Link href={`/room-detail/${post._id}`}>
       <div className="h-full bg-white shadow-lg group transition-all md:hover:shadow-2xl md:hover:-translate-y-2">
@@ -30,7 +32,7 @@ const ProductCard = ({ ...post }: IPost) => {
           <p className="text-textsm md:text-textmd font-bold">
             {parseInt(post.videoUrl).toLocaleString()}₮
           </p>
-          <Button className="font-bold">Detail</Button>
+          <Button className="font-bold"> {t("Detail")}</Button>
         </div>
       </div>
     </Link>

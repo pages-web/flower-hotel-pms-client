@@ -1,22 +1,24 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   const t = useTranslations("Meet");
   const tt = useTranslations("Header");
   const params = useParams();
+  const locale = params?.locale as string;
 
   const locations = [
     {
-      href: `/${params.locale}/optional-tour-2/`,
+      href: `/${locale}/optional-tour-2/`,
       img: "/images/-4606271830357144564_800_x_500.jpg",
       title: t("op"),
       desc: t("desc"),
     },
     {
-      href: `/${params.locale}/optional-tour/`,
+      href: `/${locale}/optional-tour/`,
       img: "/images/-4606271830357144564_800_x_500.jpg",
       title: t("opt"),
       desc: t("descs"),
@@ -26,7 +28,7 @@ export default function Page() {
   return (
     <div id="content" className="block">
       {/* Header Section */}
-      <div className="relative h-[800px] md:h-[400px] flex items-center justify-center">
+      <div className="relative h-[300px] md:h-[400px] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center brightness-50"
           style={{
@@ -35,10 +37,12 @@ export default function Page() {
           }}
         />
         <div className="relative z-10 text-center text-white">
-          <img
+          <Image
             src="/images/stamp-white.png"
             alt="Stamp"
-            className="mx-auto mb-4 w-20 h-20 object-contain"
+            width={80}
+            height={80}
+            className="mx-auto mb-4 object-contain"
           />
           <h2 className="text-3xl md:text-4xl font-bold">{tt("loc")}</h2>
         </div>
@@ -46,40 +50,35 @@ export default function Page() {
 
       {/* Locations Section */}
       <section className="container mx-auto px-4 py-10 space-y-10">
-        {locations.map((loc, index) => (
-          <div key={index} className="grid md:grid-cols-2 gap-6 items-center">
-            {/* Image */}
-            <a
-              href={loc.href}
-              className="block overflow-hidden rounded-2xl shadow-md hover:scale-105 transition-transform"
-            >
-              <img
-                src={loc.img}
-                alt={loc.title}
-                className="w-full h-65 object-cover"
-              />
-            </a>
+        <div className="grid md:grid-cols-2 gap-8">
+          {locations.map((loc, index) => (
+            <Link key={index} href={loc.href}>
+              <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+                {/* Image */}
+                <div className="w-full h-64 md:h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
+                  <Image
+                    src={loc.img}
+                    alt={loc.title}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-            {/* Text */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-3">
-                <a
-                  href={loc.href}
-                  className="hover:text-blue-600 transition-colors"
-                >
-                  {loc.title}
-                </a>
-              </h3>
-              <p className="text-gray-600 mb-4">{loc.desc}</p>
-              <a
-                href={loc.href}
-                className="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
-              >
-                {t("more")}
-              </a>
-            </div>
-          </div>
-        ))}
+                {/* Text Below Image */}
+                <div className="p-5 md:p-7 flex flex-col justify-between flex-1">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2 text-gray-900">
+                    {loc.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">{loc.desc}</p>
+                  <span className="mt-auto inline-block bg-primary text-white px-4 py-2 rounded-lg text-center font-semibold hover:bg-primary-dark transition">
+                    {t("more")}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );

@@ -1,9 +1,25 @@
 {
+  "header": {
+    "titles": [
+      { "href": "/accommodation", "title": "өрөө" },
+      { "href": "/dining", "title": "РЕСТОРАН & БАР" },
+      { "href": "/services", "title": "ҮЙЛЧИЛГЭЭНҮҮД" },
+      { "href": "/contact", "title": "ХОЛБОО БАРИХ" }
+    ]
+  },
   "HomePage": {
     "title": "Монгол!",
     "about": "хэхэ"
   },
   "restran": {
-    "Detail": "gg"
+    "Detail": "Дэлгэрэнгүй",
+    "rooms": "Өрөө Үйлчигээ",
+    "restauran": "Ресторан &  баар",
+    "services": "Үйлчигээ",
+    "Meetings": "Уулзалт, арга хэмжээ",
+    "Special Offers": "Санал Болгох",
+    "Local Information": "Монголын Тухай",
+    "News": "Мэдээ",
+    "Contact": "Холбоо барих"
   }
 }

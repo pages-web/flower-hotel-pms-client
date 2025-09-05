@@ -3,8 +3,9 @@ import { IPost } from "@/types/cms";
 import Image from "../ui/image";
 import { Button } from "../ui/button";
 import { Divide } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 const ServiceCard = ({ post }: { post: IPost }) => {
+  const t = useTranslations("restran");
   return (
     <Link href={`/services/${post._id}`}>
       <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-3 flex flex-col h-full">
@@ -32,7 +33,7 @@ const ServiceCard = ({ post }: { post: IPost }) => {
             {post.excerpt}
           </p>
           <Button className="mt-auto bg-primary text-white  font-semibold">
-            Detail
+            {t("Detail")}
           </Button>
         </div>
       </div>

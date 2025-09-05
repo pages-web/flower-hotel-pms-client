@@ -30,7 +30,7 @@ const RestaurantCard = ({ post }: { post: IPost }) => {
             {post.excerpt}
           </p>
           <Button className="mt-auto bg-primary text-white hover:bg-primary-dark font-semibold">
-            Detail {t("Detail")}
+            {t("Detail")}
           </Button>
         </div>
       </div>

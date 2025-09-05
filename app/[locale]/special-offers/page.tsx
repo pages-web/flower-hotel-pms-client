@@ -1,14 +1,14 @@
 "use client";
+
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import React from "react";
+import Link from "next/link";
 
 export default function Page() {
   const t = useTranslations("Meet");
   const tt = useTranslations("Header");
   const params = useParams();
 
-  // Special offers list
   const offers = [
     {
       href: `/${params.locale}/happy-new-year-2017/`,
@@ -44,40 +44,33 @@ export default function Page() {
 
       {/* Offers Section */}
       <section className="container mx-auto px-4 py-10">
-        <div className="space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {offers.map((offer, index) => (
-            <div key={index} className="grid md:grid-cols-2 gap-6 items-center">
-              {/* Image */}
-              <a
-                href={offer.href}
-                className="block overflow-hidden rounded-2xl shadow-md hover:scale-105 transition-transform"
-              >
-                <img
-                  src={offer.img}
-                  alt={offer.title}
-                  className="w-full h-64 object-cover"
-                />
-              </a>
+            <Link key={index} href={offer.href}>
+              <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full">
+                {/* Image */}
+                <div className="w-full h-60 md:h-72 overflow-hidden bg-gray-100 flex items-center justify-center">
+                  <img
+                    src={offer.img}
+                    alt={offer.title}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-              {/* Text */}
-              <div>
-                <h4 className="text-xl font-semibold mb-3">
-                  <a
-                    href={offer.href}
-                    className="hover:text-blue-600 transition-colors"
-                  >
+                {/* Text */}
+                <div className="p-5 md:p-7 flex flex-col justify-between flex-1">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900">
                     {offer.title}
-                  </a>
-                </h4>
-                <p className="text-gray-600 mb-4">{offer.text}</p>
-                <a
-                  href={offer.href}
-                  className="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition"
-                >
-                  More information
-                </a>
+                  </h3>
+                  <p className="text-sm md:text-base font-medium text-gray-500 line-clamp-3">
+                    {offer.text}
+                  </p>
+                  <span className="mt-auto inline-block bg-primary text-white px-4 py-2 rounded-lg text-center font-semibold hover:bg-primary-dark transition">
+                    {t("Detail")}
+                  </span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

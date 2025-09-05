@@ -1,7 +1,8 @@
 "use client";
-import { Link, useRouter } from "@/i18n/routing";
+import { Link, useRouter, usePathname } from "@/i18n/routing";
 import Image from "../ui/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Sheet,
   SheetContent,
@@ -29,22 +30,24 @@ export function NavbarTop({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const t = useTranslations("restran");
 
   const menuItems = [
-    { href: "/accommodation", label: "Rooms" },
-    { href: "/dining", label: "Restaurant & Bar" },
-    { href: "/services", label: "Services" },
-    { href: "/meetings", label: "Meetings & Events" },
-    { href: "/special-offers", label: "Special Offers" },
-    { href: "/Local-Information", label: "Local Information" },
-    { href: "/news", label: "News" },
-    { href: "/contact", label: "Contact" },
+    { href: "/accommodation", label: t("rooms") }, // Засварласан хэсэг
+    { href: "/dining", label: t("restauran") },
+    { href: "/services", label: t("services") },
+    { href: "/meetings", label: t("Meetings") },
+    { href: "/special-offers", label: t("Special Offers") },
+    { href: "/Local-Information", label: t("Local Information") },
+    { href: "/news", label: t("News") },
+    { href: "/contact", label: t("Contact") },
   ];
 
   // Хэл сонгох үед
   const onLangClick: MenuProps["onClick"] = ({ key }) => {
-    router.push(`/${key}`);
+    router.replace(pathname, { locale: key });
   };
 
   return (
@@ -69,22 +72,26 @@ export function NavbarTop({
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex gap-2 md:gap-4 ml-auto">
+        <nav className="hidden lg:flex ml-auto  md:gap-6 items-center">
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-label={item.label}
-              className="text-black text-sm px-3 py-2 hover:text-blue-600 transition-colors"
+              className="relative group text-gray-800 text-sm font-medium px-3 py-2 hover:text-blue-600 transition-colors"
             >
               {item.label}
+              {/* Доор underline hover animation нэмэх */}
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
             </Link>
           ))}
         </nav>
 
         {/* Social icons */}
-        <div className="hidden lg:flex gap-4 ml-6">
-          <a href="./contact" aria-label="Location">
+        <div className="hidden lg:flex gap-2 ml-6">
+          <a href="/contact" aria-label="Location">
+            {" "}
+            {/* Засварласан хэсэг */}
             <MapPin className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
           </a>
           <a href="/contact" aria-label="Phone">
@@ -99,6 +106,7 @@ export function NavbarTop({
             <Facebook className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
           </a>
         </div>
+
         {/* Language dropdown */}
         <Dropdown
           menu={{ items: langItems, onClick: onLangClick }}
@@ -115,6 +123,7 @@ export function NavbarTop({
             </Space>
           </a>
         </Dropdown>
+
         {/* Extra children (ex: buttons) */}
         {children}
 
@@ -143,6 +152,14 @@ export function NavbarTop({
 
               {/* Socials for mobile */}
               <div className="flex gap-4 mt-6">
+                <a href="/contact" aria-label="Location">
+                  {" "}
+                  {/* Засварласан хэсэг */}
+                  <MapPin className="w-5 h-5 text-black" />
+                </a>
+                <a href="/contact" aria-label="Phone">
+                  <Phone className="w-5 h-5 text-black" />
+                </a>
                 <a
                   href="https://www.facebook.com/flower.hotel"
                   target="_blank"
