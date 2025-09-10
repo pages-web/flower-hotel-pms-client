@@ -64,7 +64,6 @@ export default function LocalInformation() {
                     className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-
                 {/* Text */}
                 <div className="p-5 md:p-7 flex flex-col justify-between flex-1">
                   <h3 className="text-lg md:text-xl font-semibold text-gray-900">

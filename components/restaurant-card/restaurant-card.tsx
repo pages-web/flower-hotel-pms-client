@@ -20,7 +20,6 @@ const RestaurantCard = ({ post }: { post: IPost }) => {
             />
           </div>
         )}
-
         {/* Text Section */}
         <div className="p-5 md:p-7 flex flex-col justify-between space-y-3 flex-1">
           <h3 className="text-lg md:text-xl font-semibold text-gray-900">

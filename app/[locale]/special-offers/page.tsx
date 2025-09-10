@@ -39,7 +39,7 @@ export default function SpecialOffers() {
 
       {/* Offers Section */}
       <section className="container mx-auto px-4 py-10">
-        {loading && <p className="text-center">{t("Loading...")}</p>}
+        {loading && <p className="text-center">{t("Loading")}</p>}
 
         {!loading && postList.length === 0 && (
           <p className="text-center text-gray-500">{t("No offers found")}</p>

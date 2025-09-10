@@ -11,9 +11,7 @@ export const usePosts = (variables: OperationVariables) => {
     fetchPolicy: "no-cache",
     notifyOnNetworkStatusChange: true,
   });
-
   const posts: IPost[] = data?.cmsPosts;
-
   return { posts, loading };
 };
 export const usePostLists = (variables: OperationVariables) => {
