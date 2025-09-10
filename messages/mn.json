@@ -14,12 +14,14 @@
   "restran": {
     "Detail": "Дэлгэрэнгүй",
     "rooms": "Өрөө Үйлчигээ",
-    "restauran": "Ресторан &  баар",
+    "restauran": "Ресторан &  Бар",
     "services": "Үйлчигээ",
-    "Meetings": "Уулзалт, арга хэмжээ",
+    "Meetings": " Арга Хэмжээ",
     "Special Offers": "Санал Болгох",
     "Local Information": "Монголын Тухай",
     "News": "Мэдээ",
-    "Contact": "Холбоо барих"
+    "Contact": "Холбоо Барих",
+    "Restaurant & Bar": "Ресторан &  Бар",
+    "restran": "Хамгийн эрэлттэй зочид буудлын өрөөнүүд"
   }
 }

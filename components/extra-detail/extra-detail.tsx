@@ -44,8 +44,7 @@ const ExtraDetail = ({ ...post }: IPost) => {
           <h1 className="text-displayxs lg:text-displaymd">{post?.title}</h1>
         </div>
 
-        <div className="flex flex-col gap-6 shadow-lg shaodw p-7">
-          <h3 className="text-displaysm">Overview</h3>
+        <div className="flex flex-col gap-6 shadow-lg shaodw p-7 mt-10">
           <p
             className="text-textsm"
             dangerouslySetInnerHTML={{ __html: post?.content }}

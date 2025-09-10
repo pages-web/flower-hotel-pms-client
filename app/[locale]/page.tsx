@@ -63,8 +63,11 @@ export default function HomePage() {
             height={1500}
             quality={100}
             className="h-full w-full brightness-[.8] object-cover"
-            alt=""
+            alt="Hero background"
+            priority
           />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
         </div>
       </div>
       <div className="space-y-20 lg:space-y-40 mt-10">

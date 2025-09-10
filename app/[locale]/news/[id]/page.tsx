@@ -13,16 +13,26 @@ import { useLocale } from "next-intl";
 
 const RoomDetail = ({ params }: IPageProps) => {
   const locale = useLocale();
-  const slug = params.slug;
-
+  const slug = params.id;
   const { post, loading } = usePostDetail(slug, locale);
-
+  console.log("post :>> ", post);
   if (loading) {
     return <ScreenLoading />;
   }
   return (
     <div className="container min-h-screen py-20">
-      <ExtraDetail {...post} />
+      <div>
+        <div className="w-fit space-y-2">
+          <h1 className="text-displayxs lg:text-displaymd">{post?.title}</h1>
+        </div>
+
+        <div className="flex flex-col gap-6 shadow-lg shaodw p-7 mt-10">
+          <p
+            className="text-textsm"
+            dangerouslySetInnerHTML={{ __html: post?.content }}
+          ></p>
+        </div>
+      </div>
     </div>
   );
 };

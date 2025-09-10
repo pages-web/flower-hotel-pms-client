@@ -34,7 +34,7 @@ export interface IPost {
   status: PostStatus;
   tagIds: [string];
   authorId: string;
-  featured: Boolean;
+  featured: boolean;
   featuredDate: Date;
   scheduledDate: Date;
   autoArchiveDate: Date;
@@ -49,7 +49,6 @@ export interface IPost {
   videoUrl: string;
   createdAt: Date;
   updatedAt: Date;
-
   categories: [IPostCategory];
   tags: [IPostTag];
   customFieldsData: JSON;

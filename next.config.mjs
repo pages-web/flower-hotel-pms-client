@@ -13,6 +13,15 @@ const nextConfig = {
     NEXT_PUBLIC_APP_TOKEN:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOnsibmFtZSI6IlBNUyIsImNyZWF0ZWRBdCI6IjIwMjUtMDItMjBUMDY6NDM6MDQuNjk1WiIsInVzZXJHcm91cElkIjoiSndsN1V5RVFyelJNYlhLbENib0w4IiwiZXhwaXJlRGF0ZSI6IjIwMjUtMDMtMjVUMDc6MDY6MDcuNzQ3WiIsIm5vRXhwaXJlIjp0cnVlLCJhbGxvd0FsbFBlcm1pc3Npb24iOnRydWUsIl9pZCI6InpicXN1UUhwTXJtXzUySWhJSFFxWiIsIl9fdiI6MH0sImlhdCI6MTc0MDI5NDM3N30.6eSU7KQFJiKweSOm17aI2q6cmtypz4Zx0CCjyVdlFoQ",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "flowerhotel.api.erxes.io",
+        pathname: "/**", // бүх path зөвшөөрнө
+      },
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);

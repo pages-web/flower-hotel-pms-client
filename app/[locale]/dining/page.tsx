@@ -7,17 +7,17 @@ import { usePosts } from "@/sdk/queries/cms";
 import { IPost } from "@/types/cms";
 import { useQuery } from "@apollo/client";
 import { useLocale } from "next-intl";
-
+import { useTranslations } from "next-intl";
 export default function Dining() {
   const locale = useLocale();
   const { posts } = usePosts({
     language: locale,
     tagIds: ["MN2F0CRukGM5ui08xP6ko"],
   });
-
+  const t = useTranslations("restran");
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">
-      <Heading title="Restaurant & Bar" />
+      <Heading title={t("Restaurant & Bar")} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts?.map((post, index) => (

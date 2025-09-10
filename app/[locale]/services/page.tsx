@@ -5,7 +5,7 @@ import ServiceCard from "@/components/service-card/service-card";
 import { IPost } from "@/types/cms";
 import { usePosts } from "@/sdk/queries/cms";
 import { useLocale } from "next-intl";
-
+import { useTranslations } from "next-intl";
 export default function Dining() {
   const locale = useLocale();
 
@@ -14,10 +14,10 @@ export default function Dining() {
     language: locale,
     tagIds: ["7cqjtUTEqwuL0R2nB9gyz"],
   });
-
+  const t = useTranslations("restran");
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">
-      <Heading title="Services" />
+      <Heading title={t("services")} />
 
       {/* Grid Layout */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
