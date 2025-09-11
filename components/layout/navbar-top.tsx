@@ -16,11 +16,15 @@ import { Dropdown, Space } from "antd";
 import { DownOutlined, GlobalOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 
+// 🌐 Define supported locales as const assertion for type safety
+const supportedLocales = ["en", "mn", "jpn"] as const;
+type SupportedLocale = (typeof supportedLocales)[number];
+
 // 🌐 Хэлний сонголт
 const langItems: MenuProps["items"] = [
   { key: "en", label: "EN" },
   { key: "mn", label: "MN" },
-  { key: "jp", label: "日本語" }, // зөвшөөрөгдөөгүй тул safety check хийх хэрэгтэй
+  { key: "jpn", label: "日本語" },
 ];
 
 export function NavbarTop({
@@ -45,12 +49,17 @@ export function NavbarTop({
     { href: "/contact", label: t("Contact") },
   ];
 
-  // 🌐 Хэл сонгох үед (type fix)
+  // 🌐 Хэл сонгох үед - Japanese ч дэмжинэ
   const onLangClick: MenuProps["onClick"] = ({ key }) => {
-    if (key === "en" || key === "mn") {
+    // Type guard to ensure key is a supported locale
+    const isSupported = (locale: string): locale is SupportedLocale => {
+      return supportedLocales.includes(locale as SupportedLocale);
+    };
+
+    if (key && isSupported(key)) {
       router.replace(pathname, { locale: key });
     } else {
-      // fallback (JP эсвэл өөр хэл сонгосон үед English рүү)
+      // fallback English рүү
       router.replace(pathname, { locale: "en" });
     }
   };
@@ -100,7 +109,7 @@ export function NavbarTop({
             <Phone className="w-5 h-5 text-black hover:text-blue-600 transition-colors" />
           </a>
           <a
-            href="https://www.facebook.com/flower.hotel"
+            href="https://www.facebook.com/flowerhotelulaanbaatar"
             target="_blank"
             rel="noreferrer"
             aria-label="Facebook"
@@ -157,7 +166,7 @@ export function NavbarTop({
                   <Phone className="w-5 h-5 text-black" />
                 </a>
                 <a
-                  href="https://www.facebook.com/flower.hotel"
+                  href="https://www.facebook.com/flowerhotelulaanbaatar"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook"

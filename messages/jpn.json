@@ -13,19 +13,18 @@
     "terms": "Terms of Service"
   },
   "restran": {
-    "Detail": "Detail",
-    "rooms": "Rooms",
-    "restauran": "Rerstaurant & Bar",
-    "services": "Services",
-    "Meetings": "Meetings & Events",
-    "Special Offers": "Special Offers",
-    "Local Information": "Local Information",
-    "News": "News",
-    "Contact": "Contact",
-    "Restaurant & Bar": "Restaurant & Bar",
+    "rooms": "客室",
+    "restauran": "レストラン",
+    "services": "サービス",
+    "Meetings": "会議",
+    "Special Offers": "特別オファー",
+    "Local Information": "地域情報",
+    "News": "ニュース",
+    "Contact": "お問い合わせ",
     "restran": "Top Trending Hotel Rooms Views",
     "Loading": "Loading...",
-    "find": "Find your best staycation"
+    "Detail": "詳細",
+    "find": "最高のステイケーションを見つけよう"
   },
 
   "commonWords": {
