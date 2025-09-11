@@ -12,7 +12,8 @@ const Accommodation = () => {
     clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
     tagIds: ["gwNn-3QevRDYw0fkMh5ny"],
   });
-
+  console.log(" locale :>> ", locale);
+  console.log("posts :>> ", posts);
   return (
     <AccommodationLayout>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

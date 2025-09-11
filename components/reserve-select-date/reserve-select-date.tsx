@@ -18,7 +18,7 @@ import { reserveDateAtom, reserveGuestAndRoomAtom } from "@/store/reserve";
 import DateForm from "@/containers/reserve/date-form";
 import RoomForm from "@/containers/reserve/room-form";
 import GuestForm from "@/containers/reserve/guest-form";
-
+import { useTranslations } from "next-intl";
 export const ChildrenWithTitle = ({
   children,
   title,
@@ -36,11 +36,11 @@ const ReserveSelectDate = () => {
   const [reserveGuestAndRoom] = useAtom(reserveGuestAndRoomAtom);
   const [active, setActive] = useState(0);
   const { adults, children, room } = reserveGuestAndRoom || "";
-
+  const t = useTranslations("restran");
   return (
     <div className="w-full flex flex-col p-6 gap-8 rounded-[12px] bg-white border shadow-lg">
       <div className="w-full flex flex-col lg:flex-row justify-between items-end gap-6 ">
-        <ChildrenWithTitle title="Check-in">
+        <ChildrenWithTitle title={t("Check-in")}>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -65,7 +65,7 @@ const ReserveSelectDate = () => {
           </Popover>
         </ChildrenWithTitle>
 
-        <ChildrenWithTitle title="Room">
+        <ChildrenWithTitle title={t("rooms")}>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -90,7 +90,7 @@ const ReserveSelectDate = () => {
           </Popover>
         </ChildrenWithTitle>
 
-        <ChildrenWithTitle title="Guest">
+        <ChildrenWithTitle title={t("Guest")}>
           <Popover>
             <PopoverTrigger asChild>
               <Button

@@ -14,6 +14,7 @@ export default function Dining() {
     language: locale,
     tagIds: ["MN2F0CRukGM5ui08xP6ko"],
   });
+  console.log("posts :>> ", posts);
   const t = useTranslations("restran");
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">

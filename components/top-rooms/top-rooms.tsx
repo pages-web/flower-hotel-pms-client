@@ -10,16 +10,16 @@ import { useRouter } from "next/navigation";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 import { Link } from "@/i18n/routing";
-
+import { useTranslations } from "next-intl";
 export default function Rooms({ posts }: { posts: IPost[] }) {
   const router = useRouter();
-  console.log(posts, "psotststs");
 
+  const t = useTranslations("restran");
   return (
     <div className="container">
       <div className="flex justify-between">
         <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
-          Top Trending Hotel Rooms Views
+          {t("rooms")}
         </h2>
         <Link href={"/accommodation"}>
           <Button variant={"link"}>View all</Button>

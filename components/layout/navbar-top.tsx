@@ -17,14 +17,14 @@ import { DownOutlined, GlobalOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 
 // 🌐 Define supported locales as const assertion for type safety
-const supportedLocales = ["en", "mn", "jpn"] as const;
+const supportedLocales = ["en", "mn", "ja"] as const;
 type SupportedLocale = (typeof supportedLocales)[number];
 
 // 🌐 Хэлний сонголт
 const langItems: MenuProps["items"] = [
   { key: "en", label: "EN" },
   { key: "mn", label: "MN" },
-  { key: "jpn", label: "日本語" },
+  { key: "ja", label: "日本語" },
 ];
 
 export function NavbarTop({
@@ -86,7 +86,7 @@ export function NavbarTop({
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex ml-auto  md:gap-6 items-center">
+        <nav className="hidden md:flex ml-auto gap-4 lg:gap-6 items-center">
           {menuItems.map((item) => (
             <Link
               key={item.href}

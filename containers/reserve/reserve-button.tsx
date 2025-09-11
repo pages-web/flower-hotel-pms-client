@@ -7,7 +7,7 @@ import { Link } from "@/i18n/routing";
 import { useAtom } from "jotai";
 import { reserveDateAtom, reserveGuestAndRoomAtom } from "@/store/reserve";
 import { useToast } from "@/hooks/others/use-toast";
-
+import { useTranslations } from "next-intl";
 const ReserveButton = ({
   arrow,
   path,
@@ -41,7 +41,7 @@ const ReserveButton = ({
       });
     }
   };
-
+  const t = useTranslations("restran");
   return (
     <Link
       href={
@@ -63,7 +63,8 @@ const ReserveButton = ({
         size={"lg"}
         onClick={() => ToastHandler()}
       >
-        Reserve {arrow && <ArrowRight className="ml-2 w-5 h-5" />}
+        {t("Reserve")}
+        {arrow && <ArrowRight className="ml-2 w-5 h-5" />}
       </Button>
     </Link>
   );

@@ -16,7 +16,9 @@ export default function CheckOut() {
           <CheckInSection />
           <PaymentSection />
           <CancellationPolicySection />
-          <Button className=" bg-teal-600 hover:bg-teal-700 w-full">Confirm Booking</Button>
+          <Button className=" bg-teal-600 hover:bg-teal-700 w-full">
+            Confirm Booking
+          </Button>
         </div>
         <ReservationSummary />
       </div>
@@ -43,10 +45,28 @@ function PersonalInfoSection() {
     <div className="mb-6">
       <h2 className="text-lg font-semibold mb-2">Your personal information</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <InputField id="firstName" label="First name" placeholder="Enter your first name" />
-        <InputField id="lastName" label="Last name" placeholder="Enter your last name" />
-        <InputField id="email" label="E-mail" type="email" placeholder="Enter your email" />
-        <InputField id="phone" label="Phone" type="tel" placeholder="Enter your phone" />
+        <InputField
+          id="firstName"
+          label="First name"
+          placeholder="Enter your first name"
+        />
+        <InputField
+          id="lastName"
+          label="Last name"
+          placeholder="Enter your last name"
+        />
+        <InputField
+          id="email"
+          label="E-mail"
+          type="email"
+          placeholder="Enter your email"
+        />
+        <InputField
+          id="phone"
+          label="Phone"
+          type="tel"
+          placeholder="Enter your phone"
+        />
       </div>
       <div className="mt-4">
         <Label htmlFor="specialRequests">Special requests (optional)</Label>
@@ -56,7 +76,17 @@ function PersonalInfoSection() {
   );
 }
 
-function InputField({ id, label, type = "text", placeholder }: { id: string; label: string; type?: string; placeholder?: string }) {
+function InputField({
+  id,
+  label,
+  type = "text",
+  placeholder,
+}: {
+  id: string;
+  label: string;
+  type?: string;
+  placeholder?: string;
+}) {
   return (
     <div>
       <Label htmlFor={id}>{label}</Label>
@@ -92,12 +122,18 @@ function CancellationPolicySection() {
     <div className="mb-6">
       <h2 className="text-lg font-semibold mb-2">Cancellation policy</h2>
       <ul className="list-disc list-inside text-sm text-gray-600">
-        <li>This rate is non-refundable. If you change or cancel your booking you will not get a refund or credit to use for a future stay. This policy will apply regardless of COVID-19, subject to any local consumer laws.</li>
+        <li>
+          This rate is non-refundable. If you change or cancel your booking you
+          will not get a refund or credit to use for a future stay. This policy
+          will apply regardless of COVID-19, subject to any local consumer laws.
+        </li>
         <li>No refunds will be issued for late check-in or early check-out.</li>
         <li>Stay extensions require a new reservation.</li>
       </ul>
       <p className="text-sm text-gray-600 mt-2">
-        By clicking on the button below, I acknowledge that I have reviewed the Privacy Statement Opens in a new window, and Government Travel Advice Opens in a new window.
+        By clicking on the button below, I acknowledge that I have reviewed the
+        Privacy Statement Opens in a new window, and Government Travel Advice
+        Opens in a new window.
       </p>
     </div>
   );
@@ -115,11 +151,15 @@ function ReservationSummary() {
         />
         <div className="mb-4 flex justify-between">
           <div className="flex flex-col">
-            <h3 className="font-semibold">Best Western Premier Tuushin Hotel</h3>
+            <h3 className="font-semibold">
+              Best Western Premier Tuushin Hotel
+            </h3>
             <p>Deluxe Twin Room</p>
           </div>
           <div className="flex items-center mt-1">
-            <span className="bg-green-500 text-white px-2 py-1 rounded text-sm mr-2">8.2</span>
+            <span className="bg-green-500 text-white px-2 py-1 rounded text-sm mr-2">
+              8.2
+            </span>
             <span className="text-xl font-bold">Very good (580 reviews)</span>
           </div>
         </div>
@@ -128,7 +168,7 @@ function ReservationSummary() {
         </p>
         <div className="flex justify-between items-center">
           <div className="mb-4 gap-3">
-            <p className="text-sm">Room: 1 room</p>
+            <p className="text-sm">Room: mm</p>
             <p className="text-sm">Bed: 1 bed, 2 adults</p>
           </div>
           <div className="mb-4">
