@@ -18,7 +18,7 @@ export default function Dining() {
   const t = useTranslations("restran");
   return (
     <div className="container min-h-screen space-y-10 px-4 py-20">
-      <Heading title={t("Restaurant & Bar")} />
+      <Heading title={t("restauran")} />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {posts?.map((post, index) => (
