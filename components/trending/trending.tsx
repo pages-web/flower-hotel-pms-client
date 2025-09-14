@@ -1,7 +1,7 @@
-"use client"
-import { Star, ArrowRight } from "lucide-react"
-import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+"use client";
+import { Star, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/i18n/routing";
 import { useParams } from "next/navigation";
 
@@ -35,7 +35,7 @@ const suites = [
     reviews: 2578,
     image: "/images/Rectangle 7.png",
   },
-]
+];
 
 export default function Trending() {
   const id = "product-1-detail";
@@ -44,20 +44,30 @@ export default function Trending() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-displaysm font-normal">Most Visited Hotel Suites This Month</h2>
+        <h2 className="text-displaysm font-normal">
+          Most Visited Hotel Suites This Month
+        </h2>
         <Link href="#" className="text-primary hidden lg:flex items-center">
           See All
           <ArrowRight className="ml-1 h-4 w-4" />
         </Link>
       </div>
       <p className="text-muted-foreground mb-6">
-        A masterclass of sophistication, a stay at Atlantis The Royal delivers extraordinary luxury, unlike anywhere else.
+        A masterclass of sophistication, a stay at Atlantis The Royal delivers
+        extraordinary luxury, unlike anywhere else.
       </p>
-      <Link href="#" className="text-primary flex justify-end mb-3 lg:hidden items-center">
-          See All
-          <ArrowRight className="ml-1 h-4 w-4" />
-        </Link>
-      <Link href={`/room-detail/${id}`} locale={locale === "en" ? "en" : "mn"} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <Link
+        href="#"
+        className="text-primary flex justify-end mb-3 lg:hidden items-center"
+      >
+        See All
+        <ArrowRight className="ml-1 h-4 w-4" />
+      </Link>
+      <Link
+        href={`/room-detail/${id}`}
+        locale={locale === "en" ? "en" : "mn"}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
         {suites.map((suite, index) => (
           <Card key={index}>
             <CardHeader className="p-0">
@@ -75,7 +85,9 @@ export default function Trending() {
                 <div className="text-right flex gap-2">
                   <p className="text-textlg font-bold">{suite.price}</p>
                   {suite.oldPrice && (
-                    <p className="text-textsm text-muted-foreground line-through">{suite.oldPrice}</p>
+                    <p className="text-textsm text-muted-foreground line-through">
+                      {suite.oldPrice}
+                    </p>
                   )}
                 </div>
               </div>
@@ -90,5 +102,5 @@ export default function Trending() {
         ))}
       </Link>
     </div>
-  )
+  );
 }

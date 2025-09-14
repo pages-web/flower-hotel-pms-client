@@ -8,7 +8,7 @@ const ServiceCard = ({ post }: { post: IPost }) => {
   const t = useTranslations("restran");
   return (
     <Link href={`/services/${post._id}`}>
-      <div className="bg-white shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-3 flex flex-col h-full">
+      <div className="bg- shadow-lg rounded-xl overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-3 flex flex-col h-full">
         {/* Image Section */}
         {post.thumbnail?.url ? (
           <div className="w-full h-60 md:h-72 overflow-hidden bg-gray-100 flex items-center justify-center">

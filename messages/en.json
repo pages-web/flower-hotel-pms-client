@@ -28,9 +28,23 @@
     "find": "Find your best staycation",
     "Guest": "Guest",
     "Check-in": "Check-in",
-    "Reserve": "Reserve"
+    "Reserve": "Reserve",
+    "About Us": "About us ",
+    "Career": "Career",
+    "Browse": "Browse offers at our hotel",
+    "awadrs": "Awadrs",
+    " View more": "View more"
   },
-
+  "about": {
+    "About Us": "About us ",
+    "bestt": "Tsetseg Hotel, which has been operating since 1995, has continued the tradition of the Altai Hotel with many years of experience and has become the first Japanese-Mongolian joint venture to operate in a modern, clean and comfortable environment with a new organization. Since then, we have been offering our guests the highest quality service at the most affordable prices.",
+    "180": "‘Flower Hotel’ has three-stars and capable of hosting 330 guestsin 180 eco, economy, standard, deluxe and suite rooms. The hotel is centrally located on the top of a hill surrounded by poplar trees and away from the traffic noise of the city of Ulaanbaatar. It takes only twenty minutes ride to ‘Chinggis Khaan’ International Airport and only a five minute walk to Peace Avenue, which is crowded with best galleries, restaurants and night clubs. From our hilltop peaceful location, guests can enjoy a dramatic view of the stunning ‘Bogd Khan’ mountain and the city of Ulaanbaatar",
+    "ourr": "Our experienced staffs are professionally trained and able to speak in English, Japanese, Chinese and Russian. So you can feel home like environment while you are being served by our friendly staffs at ‘Flower Hotel’. Therefore, our hotel selected one of the best customer oriented hotels in Ulaanbaatar by the Hotel Association in Mongolia"
+  },
+  "career": {
+    "Career": "Career",
+    "mongolia": "HASEBE INTERNATIONAL LLC, which occupies a significant position in the Mongolian hotel market, operates in the tourism, hotel and restaurant services sector. In connection with the expansion of its service activities, the following job openings are announced."
+  },
   "commonWords": {
     "checkin": "Check-in",
     "room": "Room",

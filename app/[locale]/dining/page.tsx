@@ -24,6 +24,7 @@ export default function Dining() {
         {posts?.map((post, index) => (
           <RestaurantCard post={post} key={index} />
         ))}
+        x
       </div>
     </div>
   );

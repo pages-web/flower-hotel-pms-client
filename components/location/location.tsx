@@ -2,7 +2,7 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Plane, Car } from "lucide-react";
-
+import { useTranslations } from "next-intl";
 export default function Location() {
   const handleGetDirections = () => {
     const destination = encodeURIComponent(
@@ -11,11 +11,11 @@ export default function Location() {
     const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
     window.open(mapsUrl, "_blank");
   };
-
+  const t = useTranslations("restran");
   return (
     <div className="container mx-auto px-4 py-8">
       <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
-        Browse offers at our hotel
+        {t("Browse")}
       </h2>
 
       <Card className="overflow-hidden">
