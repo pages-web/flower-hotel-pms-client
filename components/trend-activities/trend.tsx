@@ -1,24 +1,23 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+"use client";
 import { Link } from "@/i18n/routing";
-import { ArrowRight } from "lucide-react";
 import Image from "../ui/image";
 import { IPost } from "@/types/cms";
+import { useTranslations, useLocale } from "next-intl";
+import { usePosts } from "@/sdk/queries/cms";
 
-export default function Trend({ posts }: { posts?: IPost[] }) {
-  // posts байхгүй эсвэл хоосон үед fallback болгоё
+export default function Trend() {
+  const locale = useLocale();
+  const { posts } = usePosts({
+    language: locale,
+    tagIds: ["7cqjtUTEqwuL0R2nB9gyz"],
+  });
+  const t = useTranslations("restran");
+
   if (!posts || posts.length === 0) {
     return (
       <div className="container py-8">
         <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
-          Services
+          {t("services")}
         </h2>
         <p className="text-center text-gray-500">
           Одоогоор үйлчилгээний мэдээлэл алга байна.
@@ -30,7 +29,7 @@ export default function Trend({ posts }: { posts?: IPost[] }) {
   return (
     <div className="container py-8">
       <h2 className="text-displaysm md:text-displaymd font-normal mb-8">
-        Services
+        {t("services")}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

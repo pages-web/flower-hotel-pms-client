@@ -44,7 +44,7 @@ export default function HomePage() {
   const restaurants: IPost[] = data?.cmsPosts.filter(
     (post: IPost) => post.tagIds[0] === "MN2F0CRukGM5ui08xP6ko"
   );
-
+  console.log("services :>> ", services);
   const t = useTranslations("restran");
 
   const heroImages = [
@@ -148,8 +148,8 @@ export default function HomePage() {
       {/* Sections */}
       <div className="space-y-8 sm:space-y-12 md:space-y-20 lg:space-y-40 mt-6 md:mt-10">
         <Rooms posts={rooms} />
-        <Trend posts={services} />
-        <Offer posts={restaurants} />
+        <Trend />
+        <Offer />
         <Location />
       </div>
     </div>
