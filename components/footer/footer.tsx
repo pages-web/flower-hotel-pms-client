@@ -28,7 +28,7 @@ export default function Footer() {
     },
     {
       title: t("About Us"),
-      link: "/about", // ✅ зөв линк
+      link: "/about",
     },
     {
       title: t("Career"),

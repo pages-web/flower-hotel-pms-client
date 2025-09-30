@@ -27,7 +27,6 @@ const LanguageButton = ({ locale }: { locale: string }) => {
     { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ];
-
   return (
     <div className="flex justify-center items-center">
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -81,5 +80,4 @@ const LanguageButton = ({ locale }: { locale: string }) => {
     </div>
   );
 };
-
 export default LanguageButton;

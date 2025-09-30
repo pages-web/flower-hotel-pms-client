@@ -1,49 +1,100 @@
 "use client";
 
-import { MapPin, Star } from "lucide-react";
-import Image from "../ui/image";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import ProductDetailHeader from "./product-detail-header";
+import Accommodation from "@/app/[locale]/accommodation/page";
 import ProductDetailImages from "./product-detail-images";
-import ProductCardRating from "./product-detail-rating";
-import ProductDetailDescription from "./product-detail-description";
 import { IPost } from "@/types/cms";
-import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
-import {
-  CarouselNext,
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-} from "../ui/carousel";
-import React from "react";
-import Autoplay from "embla-carousel-autoplay";
-import FixedImage from "./product-detail-fixed-image";
+import { useTranslations } from "next-intl";
 
 const ProductDetail = ({ ...post }: IPost) => {
   const attachments = post.images && [...post.images, post.thumbnail];
+  const t = useTranslations("restran");
+
+  // Одоогийн өдөр, сар авах
+  const today = new Date();
+  const day = today.getDate().toString().padStart(2, "0"); // 2 оронтой болгох
+  const month = today.toLocaleString("en-US", { month: "short" }); // Jan, Feb, May гэх мэт
+
+  const currentDate = `${day}/${month}`;
 
   return (
-    <div>
-      <div className="w-full flex flex-col gap-10">
-        <div className="w-fit space-y-2">
-          <h1 className="text-displaymd">{post?.title}</h1>
-        </div>
-        <ProductDetailImages attachments={attachments} />
+    <div className="container min-h-screen py-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        {/* Left Content */}
+        <div className="lg:col-span-2 flex flex-col gap-10">
+          <div className="space-y-3">
+            <h1 className="text-3xl font-bold text-gray-900">{post?.title}</h1>
+          </div>
 
-        <div className="flex flex-col gap-6 shadow-lg shaodw p-7">
-          <h3 className="text-displaysm">Overview</h3>
-          <p
-            className="text-textsm"
-            dangerouslySetInnerHTML={{ __html: post?.content }}
-          ></p>
+          {/* Images */}
+          <ProductDetailImages attachments={attachments} />
+
+          {/* Overview */}
+          <div className="flex flex-col gap-4 rounded-2xl shadow-md bg-white p-6">
+            <h3 className="text-xl font-semibold text-gray-800">
+              {t("Overview")}
+            </h3>
+            <p
+              className="text-gray-600 leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: post?.content }}
+            />
+          </div>
+        </div>
+
+        {/* Right Sidebar */}
+        <div className="w-full lg:w-full">
+          <h3 className="text-xl font-semibold mb-5 border-b pb-2">
+            {t("ab")}
+          </h3>
+          <ul className="space-y-6">
+            {/* Summer Price */}
+            <li className="p-5 rounded-2xl shadow-md bg-gray-50">
+              <div className="flex items-center justify-between">
+                <strong className="text-lg">Зуны үнэ:</strong>
+                <span className="text-sm text-gray-500">{currentDate}</span>
+              </div>
+              <div className="mt-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">₮185,000</h4>
+                  <span className="text-sm text-gray-600">{t("single")}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">₮220,000</h4>
+                  <span className="text-sm text-gray-600">{t("Double")}</span>
+                </div>
+              </div>
+              <p className="text-xs italic text-gray-500 mt-3">Нэг өдөр</p>
+            </li>
+
+            {/* Winter Price */}
+            <li className="p-5 rounded-2xl shadow-md bg-gray-50">
+              <div className="flex items-center justify-between">
+                <strong className="text-lg">Өвлийн үнэ:</strong>
+                <span className="text-sm text-gray-500">{currentDate}</span>
+              </div>
+              <div className="mt-4 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">₮140,000</h4>
+                  <span className="text-sm text-gray-600">{t("single")}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">₮165,000</h4>
+                  <span className="text-sm text-gray-600">{t("Double")}</span>
+                </div>
+              </div>
+              <p className="text-xs italic text-gray-500 mt-3">Нэг өдөр</p>
+            </li>
+          </ul>
+
+          {/* Info Section */}
+          <div className="mt-6 bg-gray-50 p-4 rounded-xl text-sm text-gray-600 flex items-start gap-3">
+            <span className="text-gray-500 text-lg">ℹ️</span>
+            <p>{t("sity")}</p>
+          </div>
         </div>
       </div>
+      <Accommodation />
     </div>
   );
 };
+
 export default ProductDetail;

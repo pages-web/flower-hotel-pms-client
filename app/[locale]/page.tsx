@@ -11,18 +11,15 @@ import { useQuery } from "@apollo/client";
 import { queries } from "@/sdk/graphql/cms";
 import { IPost } from "@/types/cms";
 import { useState, useRef } from "react";
-
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Zoom, Pagination, Autoplay, EffectFade } from "swiper/modules";
-
 // Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/zoom";
 import "swiper/css/effect-fade";
-
 export default function HomePage() {
   const { data, loading } = useQuery(queries.posts, {
     variables: {
@@ -30,7 +27,6 @@ export default function HomePage() {
       perPage: 10000,
     },
   });
-
   // Auto-reverse autoplay
   const [isReversed, setIsReversed] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
