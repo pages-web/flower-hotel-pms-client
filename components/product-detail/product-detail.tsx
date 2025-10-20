@@ -4,6 +4,7 @@ import Accommodation from "@/app/[locale]/accommodation/page";
 import ProductDetailImages from "./product-detail-images";
 import { IPost } from "@/types/cms";
 import { useTranslations } from "next-intl";
+import { CustomFields } from "@/constants";
 
 const ProductDetail = ({ ...post }: IPost) => {
   const attachments = post.images && [...post.images, post.thumbnail];
@@ -15,6 +16,18 @@ const ProductDetail = ({ ...post }: IPost) => {
   const month = today.toLocaleString("en-US", { month: "short" }); // Jan, Feb, May гэх мэт
 
   const currentDate = `${day}/${month}`;
+  const SingleSummerPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.SingleSummerPrice
+  )?.value;
+  const SingleWinterPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.SingleWinterPrice
+  )?.value;
+  const DoubleSummerPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.DoubleSummerPrice
+  )?.value;
+  const DoubleWinterPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.DoubleWinterPrice
+  )?.value;
 
   return (
     <div className="container min-h-screen py-20">
@@ -54,11 +67,15 @@ const ProductDetail = ({ ...post }: IPost) => {
               </div>
               <div className="mt-4 space-y-3">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-lg font-bold text-black">₮185,000</h4>
+                  <h4 className="text-lg font-bold text-black">
+                    {SingleSummerPrice || "185,000"}
+                  </h4>
                   <span className="text-sm text-gray-600">{t("single")}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <h4 className="text-lg font-bold text-black">₮220,000</h4>
+                  <h4 className="text-lg font-bold text-black">
+                    {DoubleSummerPrice || "220,000"}
+                  </h4>
                   <span className="text-sm text-gray-600">{t("Double")}</span>
                 </div>
               </div>
@@ -73,11 +90,15 @@ const ProductDetail = ({ ...post }: IPost) => {
               </div>
               <div className="mt-4 space-y-3">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-lg font-bold text-black">₮140,000</h4>
+                  <h4 className="text-lg font-bold text-black">
+                    {SingleWinterPrice || "140,000"}
+                  </h4>
                   <span className="text-sm text-gray-600">{t("single")}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <h4 className="text-lg font-bold text-black">₮165,000</h4>
+                  <h4 className="text-lg font-bold text-black">
+                    {DoubleWinterPrice || "165,000"}
+                  </h4>
                   <span className="text-sm text-gray-600">{t("Double")}</span>
                 </div>
               </div>

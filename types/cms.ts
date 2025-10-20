@@ -51,5 +51,10 @@ export interface IPost {
   updatedAt: Date;
   categories: [IPostCategory];
   tags: [IPostTag];
-  customFieldsData: JSON;
+  customFieldsData?: [
+    {
+      field?: string;
+      value?: string;
+    }
+  ];
 }

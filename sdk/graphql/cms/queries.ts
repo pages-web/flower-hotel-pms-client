@@ -40,6 +40,7 @@ const postDetail = gql`
         name
       }
       videoUrl
+      customFieldsData
     }
   }
 `;
@@ -192,6 +193,7 @@ const postList = gql(`
       updatedAt
       __typename
     }
+
     __typename
   }
 }`);
