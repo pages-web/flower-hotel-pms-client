@@ -65,10 +65,10 @@ const ProductDetail = ({ ...post }: IPost) => {
                 <strong className="text-lg">Зуны үнэ:</strong>
                 <span className="text-sm text-gray-500">{currentDate}</span>
               </div>
-              <div className="mt-4 space-y-3">
+              <div className="mt-4 space-y-3">    
                 <div className="flex items-center justify-between">
                   <h4 className="text-lg font-bold text-black">
-                    {SingleSummerPrice || "185,000"}
+                    {SingleSummerPrice || "185,000"} 
                   </h4>
                   <span className="text-sm text-gray-600">{t("single")}</span>
                 </div>
