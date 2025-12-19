@@ -22,14 +22,14 @@ import "swiper/css/zoom";
 import "swiper/css/effect-fade";
 import { MapPin, RefreshCw, Thermometer, Wind } from "lucide-react";
 
-export default function HomePage() {
+export default function HomePage({ params }: { params: { locale: string } }) {
   const { data, loading } = useQuery(queries.posts, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
       perPage: 10000,
+      language: params.locale,
     },
   });
-
   const [weather, setWeather] = useState<any>(null);
   const [loadingWeather, setLoadingWeather] = useState(true);
   const [isReversed, setIsReversed] = useState(false);
@@ -84,7 +84,9 @@ export default function HomePage() {
       }, 6000);
     }
   };
-
+  const MainBannerText = data?.cmsPosts?.find((item: any) =>
+    item?.categoryIds?.includes("-oQTWGnVC3DtLN_dK1jZa")
+  );
   if (loading) return <ScreenLoading />;
 
   return (
@@ -93,8 +95,8 @@ export default function HomePage() {
       <div className="relative overflow-hidden">
         <div className="min-h-[60vh] md:min-h-screen flex flex-col justify-end container px-4 md:px-6 pb-6 md:pb-12 relative z-10">
           <div className="space-y-4 md:space-y-6 md:mb-[84px] text-center md:text-left">
-            <h1 className="text-[22px] sm:text-[28px] md:text-[48px] lg:text-[64px] leading-tight text-white font-extrabold drop-shadow-xl">
-              {t("find")}
+            <h1 className="text-[22px] sm:text-[28px] md:text-[48px] lg:text-[64px] leading-tight mb-20 text-white font-extrabold drop-shadow-xl">
+              {MainBannerText?.title}
             </h1>
           </div>
           <div>

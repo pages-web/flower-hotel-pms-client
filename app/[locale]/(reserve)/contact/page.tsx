@@ -1,15 +1,17 @@
+// app/[locale]/(reserve)/contact/page.tsx
 import { Phone, MapPin, Mail } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import dynamic from "next/dynamic";
 
-export default function ContactComponent() {
+// Dynamically import the client component with SSR disabled
+const ContactForm = dynamic(() => import("./ContactForm"), { ssr: false });
+
+export default function ContactPage() {
   return (
     <div className="w-full min-h-screen container mx-auto px-6 py-20">
       <h1 className="text-3xl font-bold mb-4">Contact</h1>
       <p className="mb-8 text-gray-600">
-        No request is too great and no detail too small. We are also here to
-        assist you before your trip at Flower Hotel.
+        No request is too great and no detail too small. Our team is happy to
+        assist you before and during your stay at Flower Hotel.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -18,8 +20,11 @@ export default function ContactComponent() {
             <Phone className="text-primary w-6 h-6 mt-1" />
             <div>
               <h2 className="font-semibold text-lg text-gray-800">Phone</h2>
-              <p className="text-gray-600">+77004949</p>
-              <p className="text-gray-600">+90114750</p>
+              <p className="text-gray-600">+976 7700 4949</p>
+              <p className="text-gray-600">++976 9011 4750 (Hotel booking)</p>
+              <p className="text-gray-600">
+                +976 8805 2939 (Restaurant & conference room reservation)
+              </p>
             </div>
           </div>
 
@@ -28,8 +33,8 @@ export default function ContactComponent() {
             <div>
               <h2 className="font-semibold text-lg text-gray-800">Location</h2>
               <p className="text-gray-600">
-                Bayanzurkh Duureg, Zaluuchuud Avenue -18, Ulaanbaatar-49,
-                Mongolia, P.O.Box-328
+                Bayanzürkh District, Zaluuchuud Avenue 18 Ulaanbaatar 49,
+                Mongolia P.O. Box 328
               </p>
             </div>
           </div>
@@ -38,25 +43,18 @@ export default function ContactComponent() {
             <Mail className="text-primary w-6 h-6 mt-1" />
             <div>
               <h2 className="font-semibold text-lg text-gray-800">Email</h2>
-              <p className="text-gray-600">reservation@flower-hotel.mn</p>
+              <p className="text-gray-600">
+                reservation@flower-hotel.mn (Hotel booking)
+              </p>
+              <p className="text-gray-600">
+                restaurants@flower-hotel.mn (Restaurant & conference room
+                reservation)
+              </p>
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold mb-4">Leave a message ?</h2>
-          <form className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <Input placeholder="Enter your first name" />
-              <Input placeholder="Enter your last name" />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Input type="email" placeholder="Enter your email" />
-              <Input type="tel" placeholder="Enter your phone" />
-            </div>
-            <Textarea placeholder="Limit 250 characters" />
-            <Button className="w-full bg-teal-600 hover:bg-teal-700">
-              Send message
-            </Button>
-          </form>
+          <h2 className="text-2xl font-bold mb-4">Leave a message</h2>
+          <ContactForm />
         </div>
 
         <div className="h-[400px] lg:h-full rounded-lg overflow-hidden">
@@ -67,6 +65,7 @@ export default function ContactComponent() {
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
+            title="Flower Hotel Location"
           ></iframe>
         </div>
       </div>

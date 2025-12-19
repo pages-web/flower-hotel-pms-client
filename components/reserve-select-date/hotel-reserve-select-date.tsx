@@ -37,7 +37,7 @@ const calculateRecommendedRooms = (adults: number, children: number) => {
   return Math.max(1, Math.ceil(totalGuests / 2));
 };
 
-const ReserveSelectDate = () => {
+const HotelReserveSelectDate = () => {
   const [date] = useAtom(reserveDateAtom);
   const [reserveGuestAndRoom, setReserveGuestAndRoom] = useAtom(
     reserveGuestAndRoomAtom
@@ -57,8 +57,8 @@ const ReserveSelectDate = () => {
     setShowRecommendation(false);
   };
   return (
-    <div className="w-full flex flex-col p-6 gap-8 rounded-[12px] bg-white border shadow-lg">
-      <div className="w-full flex flex-col lg:flex-row justify-between items-end gap-6 ">
+    <div className="w-full flex flex-col p-6 gap-8 mt-10 rounded-[12px] bg-white border shadow-lg">
+      <div className="w-full flex flex-col lg:flex-col justify-between items-end gap-6 ">
         <ChildrenWithTitle title={t("Check-in")}>
           <Popover>
             <PopoverTrigger asChild>
@@ -190,4 +190,4 @@ const ReserveSelectDate = () => {
     </div>
   );
 };
-export default ReserveSelectDate;
+export default HotelReserveSelectDate;

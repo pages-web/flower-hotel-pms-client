@@ -18,6 +18,8 @@ import {
 } from "../ui/carousel";
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const ExtraDetail = ({ ...post }: IPost) => {
   const attachments = post.images && [...post.images, post.thumbnail];
@@ -50,6 +52,9 @@ const ExtraDetail = ({ ...post }: IPost) => {
             dangerouslySetInnerHTML={{ __html: post?.content }}
           ></p>
         </div>
+        <Link href="/contact" className="py-4">
+          <Button className="w-full mt-10 py-4">Захиалах</Button>
+        </Link>
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ import ProductDetailImages from "./product-detail-images";
 import { IPost } from "@/types/cms";
 import { useTranslations } from "next-intl";
 import { CustomFields } from "@/constants";
+import ReserveSelectDate from "../reserve-select-date/reserve-select-date";
+import ReservedRoomDetail from "../reserved-room-detail/reserved-room-detail";
+import HotelReserveSelectDate from "../reserve-select-date/hotel-reserve-select-date";
 
 const ProductDetail = ({ ...post }: IPost) => {
   const attachments = post.images && [...post.images, post.thumbnail];
@@ -65,10 +68,10 @@ const ProductDetail = ({ ...post }: IPost) => {
                 <strong className="text-lg">Зуны үнэ:</strong>
                 <span className="text-sm text-gray-500">{currentDate}</span>
               </div>
-              <div className="mt-4 space-y-3">    
+              <div className="mt-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-lg font-bold text-black">
-                    {SingleSummerPrice || "185,000"} 
+                    {SingleSummerPrice || "185,000"}
                   </h4>
                   <span className="text-sm text-gray-600">{t("single")}</span>
                 </div>
@@ -105,7 +108,9 @@ const ProductDetail = ({ ...post }: IPost) => {
               <p className="text-xs italic text-gray-500 mt-3">Нэг өдөр</p>
             </li>
           </ul>
-
+          <div>
+            <HotelReserveSelectDate />
+          </div>
           {/* Info Section */}
           <div className="mt-6 bg-gray-50 p-4 rounded-xl text-sm text-gray-600 flex items-start gap-3">
             <span className="text-gray-500 text-lg">ℹ️</span>
