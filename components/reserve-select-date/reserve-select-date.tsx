@@ -59,30 +59,57 @@ const ReserveSelectDate = () => {
   return (
     <div className="w-full flex flex-col p-6 gap-8 rounded-[12px] bg-white border shadow-lg">
       <div className="w-full flex flex-col lg:flex-row justify-between items-end gap-6 ">
-        <ChildrenWithTitle title={t("Check-in")}>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                id="date"
-                variant={"outline"}
-                className={cn(
-                  "justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
-                )}
-              >
-                <CalendarIcon className="mr-2 min-h-5 h-5 w-5 min-w-5" />
-                {date?.from && date?.to ? (
-                  format(date.from, "PPP") + ` - ` + format(date.to, "PPP")
-                ) : (
-                  <span>Pick a date</span>
-                )}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="min-w-[300px] w-fit p-5" align="start">
-              <DateForm />
-            </PopoverContent>
-          </Popover>
-        </ChildrenWithTitle>
+        <div className="flex flex-col md:flex-row gap-4 w-full">
+          <ChildrenWithTitle title={t("checkin")}>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  id="check-in"
+                  variant={"outline"}
+                  className={cn(
+                    "justify-start text-left font-normal w-full",
+                    !date?.from && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 min-h-5 h-5 w-5 min-w-5" />
+                  {date?.from ? (
+                    format(date.from, "PPP")
+                  ) : (
+                    <span>{t("Select check-in")}</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="min-w-[300px] w-fit p-5" align="start">
+                <DateForm mode="checkin" />
+              </PopoverContent>
+            </Popover>
+          </ChildrenWithTitle>
+
+          <ChildrenWithTitle title={t("checkout")}>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  id="check-out"
+                  variant={"outline"}
+                  className={cn(
+                    "justify-start text-left font-normal w-full",
+                    !date?.to && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 min-h-5 h-5 w-5 min-w-5" />
+                  {date?.to ? (
+                    format(date.to, "PPP")
+                  ) : (
+                    <span>{t("Select check-out")}</span>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="min-w-[300px] w-fit p-5" align="start">
+                <DateForm mode="checkout" />
+              </PopoverContent>
+            </Popover>
+          </ChildrenWithTitle>
+        </div>
 
         <ChildrenWithTitle title={t("rooms")}>
           <Popover>

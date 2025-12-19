@@ -62,7 +62,13 @@
     "mongolia": "モンゴルのホテル市場で重要な地位を占めるHASEBE INTERNATIONAL LLCは、観光、ホテル、レストランサービス分野で事業を展開しています。サービス事業の拡大に伴い、以下の求人を募集いたします。"
   },
   "commonWords": {
-    "checkin": "Check-in",
+    "checkin": "チェックイン",
+    "checkout": "チェックアウト",
+    "selectCheckin": "チェックイン日を選択",
+    "selectCheckout": "チェックアウト日を選択",
+    "clearDates": "日付をクリア",
+    "addOneNight": "1泊追加",
+    "changeToOneNight": "1泊に変更",
     "room": "Room",
     "guest": "Guest",
     "guests": "Guests",
@@ -71,8 +77,8 @@
     "child": "Child",
     "children": "Children",
     "reserve": "Reserve",
-    "removeDate": "Remove date",
+    "removeDate": "日付を削除",
     "detail": "Detail",
-    "homeBookingTitle": "Find your best staycation"
+    "homeBookingTitle": "最高のステイケーションを見つけよう"
   }
 }

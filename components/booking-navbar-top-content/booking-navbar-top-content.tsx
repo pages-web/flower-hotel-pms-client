@@ -47,7 +47,7 @@ const BookingNavbarTopContent = () => {
             </Button>
           </PopoverTrigger>
           <PopoverContent className="min-w-[300px] w-fit p-5" align="start">
-            <DateForm />
+            <DateForm mode="checkin" />
           </PopoverContent>
         </Popover>
 

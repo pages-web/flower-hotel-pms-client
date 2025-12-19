@@ -64,6 +64,12 @@
   },
   "commonWords": {
     "checkin": "Check-in",
+    "checkout": "Check-out",
+    "selectCheckin": "Select check-in",
+    "selectCheckout": "Select check-out",
+    "clearDates": "Clear dates",
+    "addOneNight": "Add 1 night",
+    "changeToOneNight": "Change to 1 night",
     "room": "Room",
     "guest": "Guest",
     "guests": "Guests",
