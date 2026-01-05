@@ -95,7 +95,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       <div className="relative overflow-hidden">
         <div className="min-h-[60vh] md:min-h-screen flex flex-col justify-end container px-4 md:px-6 pb-6 md:pb-12 relative z-10">
           <div className="space-y-4 md:space-y-6 md:mb-[84px] text-center md:text-left">
-            <h1 className="text-[22px] sm:text-[28px] md:text-[48px] lg:text-[64px] leading-tight mb-20 text-white font-extrabold drop-shadow-xl">
+            <h1 className="text-[16px] sm:text-[28px] md:text-[48px] lg:text-[44px] leading-tight mb-20 font-serif text-white  drop-shadow-xl">
               {MainBannerText?.title}
             </h1>
           </div>

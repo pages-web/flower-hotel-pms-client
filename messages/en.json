@@ -27,7 +27,8 @@
     "Loading": "Loading...",
     "find": "Find your best staycation",
     "Guest": "Guest",
-    "Check-in": "Check-in",
+    "checkin": "Check-in",
+    "checkout": "Check-out",
     "Reserve": "Reserve",
     "About Us": "About us ",
     "Career": "Career",
@@ -50,7 +51,9 @@
     "children": "children",
     "we recommend": "we recommend",
     "room": "room",
-    "Select": "Select"
+    "Select": "Select",
+    "summer": "Summer price",
+    "winter": "Winter price"
   },
   "about": {
     "About Us": "About us ",

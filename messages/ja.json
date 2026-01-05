@@ -26,7 +26,8 @@
     "Detail": "詳細",
     "find": "最高のステイケーションを見つけよう",
     "Guest": "ゲスト",
-    "Check-in": "チェックイン",
+    "checkin": "チェックイン",
+    "checkout": "チェックアウト",
     "Reserve": "予約する",
     "About Us": "私たちについて",
     "Career": "キャリア",
@@ -49,7 +50,9 @@
     "children": "子供",
     "we recommend": "名様には、",
     "room": "部屋",
-    "Select": "選択する"
+    "Select": "選択する",
+    "summer": "夏季料金",
+    "winter": "冬季料金"
   },
   "about": {
     "About Us": "私たちについて",

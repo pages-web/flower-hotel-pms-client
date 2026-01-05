@@ -35,16 +35,13 @@ const ProductDetail = ({ ...post }: IPost) => {
   return (
     <div className="container min-h-screen py-20">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* Left Content */}
         <div className="lg:col-span-2 flex flex-col gap-10">
           <div className="space-y-3">
             <h1 className="text-3xl font-bold text-gray-900">{post?.title}</h1>
           </div>
 
-          {/* Images */}
           <ProductDetailImages attachments={attachments} />
 
-          {/* Overview */}
           <div className="flex flex-col gap-4 rounded-2xl shadow-md bg-white p-6">
             <h3 className="text-xl font-semibold text-gray-800">
               {t("Overview")}
@@ -56,16 +53,14 @@ const ProductDetail = ({ ...post }: IPost) => {
           </div>
         </div>
 
-        {/* Right Sidebar */}
         <div className="w-full lg:w-full">
           <h3 className="text-xl font-semibold mb-5 border-b pb-2">
             {t("ab")}
           </h3>
           <ul className="space-y-6">
-            {/* Summer Price */}
             <li className="p-5 rounded-2xl shadow-md bg-gray-50">
               <div className="flex items-center justify-between">
-                <strong className="text-lg">Зуны үнэ:</strong>
+                <strong className="text-lg">{t("summer")}:</strong>
                 <span className="text-sm text-gray-500">{currentDate}</span>
               </div>
               <div className="mt-4 space-y-3">
@@ -88,7 +83,7 @@ const ProductDetail = ({ ...post }: IPost) => {
             {/* Winter Price */}
             <li className="p-5 rounded-2xl shadow-md bg-gray-50">
               <div className="flex items-center justify-between">
-                <strong className="text-lg">Өвлийн үнэ:</strong>
+                <strong className="text-lg">{t("winter")}:</strong>
                 <span className="text-sm text-gray-500">{currentDate}</span>
               </div>
               <div className="mt-4 space-y-3">
