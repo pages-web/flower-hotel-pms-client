@@ -17,6 +17,9 @@ const ReserveButton = ({
   path?: string;
   className?: string;
 }) => {
+  const formatDate = (date: Date | undefined) => {
+    return date instanceof Date ? date.toISOString().split("T")[0] : "";
+  };
   const locale = useParams().locale;
   const [date] = useAtom(reserveDateAtom);
   const [reserveGuestAndRoom] = useAtom(reserveGuestAndRoomAtom);
@@ -44,6 +47,7 @@ const ReserveButton = ({
   const t = useTranslations("restran");
   return (
     <Link
+      target="_blank"
       href={
         !date?.from ||
         !date?.to ||
@@ -52,7 +56,7 @@ const ReserveButton = ({
         reserveGuestAndRoom?.room === 0 ||
         reserveGuestAndRoom?.adults === 0
           ? ""
-          : "/booking"
+          : `https://booking.flower-hotel.mn/room-rates?arrivalDate=${formatDate(date.from)}&departureDate=${formatDate(date.to)}`
       }
       locale={locale === "en" ? "en" : "mn"}
       className={className}

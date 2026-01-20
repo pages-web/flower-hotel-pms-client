@@ -42,7 +42,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         const apiKey = "54527fb2610662b49f397ffb7c76caf3";
         const city = "Ulaanbaatar";
         const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=mn`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=mn`,
         );
         const data = await res.json();
         setWeather(data);
@@ -57,7 +57,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   }, []);
 
   const rooms: IPost[] = data?.cmsPosts.filter(
-    (post: IPost) => post.tagIds[0] === "gwNn-3QevRDYw0fkMh5ny"
+    (post: IPost) => post.tagIds[0] === "gwNn-3QevRDYw0fkMh5ny",
   );
 
   const heroImages = [
@@ -85,7 +85,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     }
   };
   const MainBannerText = data?.cmsPosts?.find((item: any) =>
-    item?.categoryIds?.includes("-oQTWGnVC3DtLN_dK1jZa")
+    item?.categoryIds?.includes("-oQTWGnVC3DtLN_dK1jZa"),
   );
   if (loading) return <ScreenLoading />;
 

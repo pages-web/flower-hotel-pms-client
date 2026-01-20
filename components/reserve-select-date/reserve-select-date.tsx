@@ -40,7 +40,7 @@ const calculateRecommendedRooms = (adults: number, children: number) => {
 const ReserveSelectDate = () => {
   const [date] = useAtom(reserveDateAtom);
   const [reserveGuestAndRoom, setReserveGuestAndRoom] = useAtom(
-    reserveGuestAndRoomAtom
+    reserveGuestAndRoomAtom,
   );
   const [showRecommendation, setShowRecommendation] = useState(false);
   const { adults = 0, children = 0, room = 1 } = reserveGuestAndRoom || {};
@@ -68,7 +68,7 @@ const ReserveSelectDate = () => {
                   variant={"outline"}
                   className={cn(
                     "justify-start text-left font-normal w-full",
-                    !date?.from && "text-muted-foreground"
+                    !date?.from && "text-muted-foreground",
                   )}
                 >
                   <CalendarIcon className="mr-2 min-h-5 h-5 w-5 min-w-5" />
@@ -93,7 +93,7 @@ const ReserveSelectDate = () => {
                   variant={"outline"}
                   className={cn(
                     "justify-start text-left font-normal w-full",
-                    !date?.to && "text-muted-foreground"
+                    !date?.to && "text-muted-foreground",
                   )}
                 >
                   <CalendarIcon className="mr-2 min-h-5 h-5 w-5 min-w-5" />
@@ -119,7 +119,7 @@ const ReserveSelectDate = () => {
                 variant={"outline"}
                 className={cn(
                   "justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
+                  !date && "text-muted-foreground",
                 )}
               >
                 <Bed className="mr-2 h-4 w-4" />
@@ -144,7 +144,7 @@ const ReserveSelectDate = () => {
                 variant={"outline"}
                 className={cn(
                   "justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
+                  !date && "text-muted-foreground",
                 )}
               >
                 <Users className="mr-2 h-4 w-4" />
