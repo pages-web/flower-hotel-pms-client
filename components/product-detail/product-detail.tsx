@@ -20,18 +20,24 @@ const ProductDetail = ({ ...post }: IPost) => {
 
   const currentDate = `${day}/${month}`;
   const SingleSummerPrice = post?.customFieldsData?.find(
-    (item) => item.field === CustomFields.SingleSummerPrice
+    (item) => item.field === CustomFields.SingleSummerPrice,
   )?.value;
   const SingleWinterPrice = post?.customFieldsData?.find(
-    (item) => item.field === CustomFields.SingleWinterPrice
+    (item) => item.field === CustomFields.SingleWinterPrice,
   )?.value;
   const DoubleSummerPrice = post?.customFieldsData?.find(
-    (item) => item.field === CustomFields.DoubleSummerPrice
+    (item) => item.field === CustomFields.DoubleSummerPrice,
   )?.value;
   const DoubleWinterPrice = post?.customFieldsData?.find(
-    (item) => item.field === CustomFields.DoubleWinterPrice
+    (item) => item.field === CustomFields.DoubleWinterPrice,
   )?.value;
 
+  const TripleSummerPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.TripleSummerPrice,
+  )?.value;
+  const TripleWinterPrice = post?.customFieldsData?.find(
+    (item) => item.field === CustomFields.TripleWinterPrice,
+  )?.value;
   return (
     <div className="container min-h-screen py-20">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -76,6 +82,12 @@ const ProductDetail = ({ ...post }: IPost) => {
                   </h4>
                   <span className="text-sm text-gray-600">{t("Double")}</span>
                 </div>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">
+                    {TripleSummerPrice || "250,000"}
+                  </h4>
+                  <span className="text-sm text-gray-600">{t("Triple")}</span>
+                </div>
               </div>
               <p className="text-xs italic text-gray-500 mt-3">Нэг өдөр</p>
             </li>
@@ -98,6 +110,12 @@ const ProductDetail = ({ ...post }: IPost) => {
                     {DoubleWinterPrice || "165,000"}
                   </h4>
                   <span className="text-sm text-gray-600">{t("Double")}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <h4 className="text-lg font-bold text-black">
+                    {TripleWinterPrice || "180,000"}
+                  </h4>
+                  <span className="text-sm text-gray-600">{t("Triple")}</span>
                 </div>
               </div>
               <p className="text-xs italic text-gray-500 mt-3">Нэг өдөр</p>
