@@ -16,9 +16,9 @@ const ProductDetail = ({ ...post }: IPost) => {
   // Одоогийн өдөр, сар авах
   const today = new Date();
   const day = today.getDate().toString().padStart(2, "0"); // 2 оронтой болгох
-  const month = today.toLocaleString("en-US", { month: "short" }); // Jan, Feb, May гэх мэт
+  const month = today.toLocaleString("en-US", { month: "long" }); // Jan, Feb, May гэх мэт
 
-  const currentDate = `${day}/${month}`;
+  const currentDate = `${month}/${day}`;
   const SingleSummerPrice = post?.customFieldsData?.find(
     (item) => item.field === CustomFields.SingleSummerPrice,
   )?.value;

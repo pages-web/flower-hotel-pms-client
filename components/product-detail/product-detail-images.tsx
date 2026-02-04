@@ -23,11 +23,11 @@ const ProductDetailImages = ({
   attachments: IAttachment[];
 }) => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
   return (
     <>
-      <div className="lg:hidden">
+      <div className="">
         <Carousel
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
@@ -35,15 +35,20 @@ const ProductDetailImages = ({
         >
           <CarouselContent>
             {attachments.map((attachment, index) => (
-              <CarouselItem key={index} className="aspect-square overflow-hidden rounded-sm">
+              <CarouselItem
+                key={index}
+                className="aspect-square overflow-hidden rounded-sm max-h-[500px]"
+              >
                 <FixedImage src={attachment.url} />
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
         </Carousel>
       </div>
 
-      <div className="hidden lg:block">
+      {/* <div className="hidden lg:block">
         {attachments.length >= 4 && (
           <ResizablePanelGroup
             direction="horizontal"
@@ -102,7 +107,7 @@ const ProductDetailImages = ({
             <FixedImage src={attachments[0].url} />
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 };

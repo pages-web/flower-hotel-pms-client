@@ -40,8 +40,8 @@ const FixedImage = ({
           <Image
             src={src || "/images/image1.png"}
             width={1000}
-            height={600}
-            quality={100}
+            height={200}
+            quality={50}
           />
         </div>
       </DialogContent>
